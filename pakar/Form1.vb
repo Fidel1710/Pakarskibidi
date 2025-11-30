@@ -1,5 +1,5 @@
 ﻿Public Class Form1
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+    Private Sub TrackBar11_Scroll(sender As Object, e As EventArgs) Handles TrackBar11.Scroll
 
     End Sub
 End Class
