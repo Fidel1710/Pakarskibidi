@@ -259,6 +259,42 @@ Partial Class Form1
         Label216 = New Label()
         TrackBar18 = New TrackBar()
         Label217 = New Label()
+        Label218 = New Label()
+        Label219 = New Label()
+        Label220 = New Label()
+        Label221 = New Label()
+        Label222 = New Label()
+        Label223 = New Label()
+        Label224 = New Label()
+        Label225 = New Label()
+        Label226 = New Label()
+        Label227 = New Label()
+        Label228 = New Label()
+        Label229 = New Label()
+        Label230 = New Label()
+        Label231 = New Label()
+        Label232 = New Label()
+        Label233 = New Label()
+        Label234 = New Label()
+        Label235 = New Label()
+        Label236 = New Label()
+        Label237 = New Label()
+        Label238 = New Label()
+        Label239 = New Label()
+        Label240 = New Label()
+        Label241 = New Label()
+        Label242 = New Label()
+        Label243 = New Label()
+        Label244 = New Label()
+        Label245 = New Label()
+        Label246 = New Label()
+        Label247 = New Label()
+        Label248 = New Label()
+        Label249 = New Label()
+        Label250 = New Label()
+        Label251 = New Label()
+        Label252 = New Label()
+        Label253 = New Label()
         CType(TrackBar1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         CType(TrackBar2, ComponentModel.ISupportInitialize).BeginInit()
@@ -285,7 +321,7 @@ Partial Class Form1
         Label2.AutoSize = True
         Label2.Location = New Point(149, 100)
         Label2.Name = "Label2"
-        Label2.Size = New Size(105, 15)
+        Label2.Size = New Size(106, 15)
         Label2.TabIndex = 1
         Label2.Text = "1. Teori Automata?"
         ' 
@@ -1916,7 +1952,7 @@ Partial Class Form1
         Label169.AutoSize = True
         Label169.Location = New Point(149, 1309)
         Label169.Name = "Label169"
-        Label169.Size = New Size(156, 15)
+        Label169.Size = New Size(158, 15)
         Label169.TabIndex = 237
         Label169.Text = "14. IoT (Internet of Things)?  "
         ' 
@@ -2380,13 +2416,373 @@ Partial Class Form1
         Label217.TabIndex = 289
         Label217.Text = "18. Jaringan Komputer?"
         ' 
+        ' Label218
+        ' 
+        Label218.AutoSize = True
+        Label218.Location = New Point(91, 129)
+        Label218.Name = "Label218"
+        Label218.Size = New Size(70, 15)
+        Label218.TabIndex = 302
+        Label218.Text = "Tidak Minat"
+        ' 
+        ' Label219
+        ' 
+        Label219.AutoSize = True
+        Label219.Location = New Point(408, 129)
+        Label219.Name = "Label219"
+        Label219.Size = New Size(38, 15)
+        Label219.TabIndex = 303
+        Label219.Text = "Minat"
+        ' 
+        ' Label220
+        ' 
+        Label220.AutoSize = True
+        Label220.Location = New Point(91, 232)
+        Label220.Name = "Label220"
+        Label220.Size = New Size(70, 15)
+        Label220.TabIndex = 304
+        Label220.Text = "Tidak Minat"
+        ' 
+        ' Label221
+        ' 
+        Label221.AutoSize = True
+        Label221.Location = New Point(91, 331)
+        Label221.Name = "Label221"
+        Label221.Size = New Size(70, 15)
+        Label221.TabIndex = 305
+        Label221.Text = "Tidak Minat"
+        ' 
+        ' Label222
+        ' 
+        Label222.AutoSize = True
+        Label222.Location = New Point(82, 432)
+        Label222.Name = "Label222"
+        Label222.Size = New Size(70, 15)
+        Label222.TabIndex = 306
+        Label222.Text = "Tidak Minat"
+        ' 
+        ' Label223
+        ' 
+        Label223.AutoSize = True
+        Label223.Location = New Point(82, 524)
+        Label223.Name = "Label223"
+        Label223.Size = New Size(70, 15)
+        Label223.TabIndex = 307
+        Label223.Text = "Tidak Minat"
+        ' 
+        ' Label224
+        ' 
+        Label224.AutoSize = True
+        Label224.Location = New Point(82, 606)
+        Label224.Name = "Label224"
+        Label224.Size = New Size(70, 15)
+        Label224.TabIndex = 308
+        Label224.Text = "Tidak Minat"
+        ' 
+        ' Label225
+        ' 
+        Label225.AutoSize = True
+        Label225.Location = New Point(82, 696)
+        Label225.Name = "Label225"
+        Label225.Size = New Size(70, 15)
+        Label225.TabIndex = 309
+        Label225.Text = "Tidak Minat"
+        ' 
+        ' Label226
+        ' 
+        Label226.AutoSize = True
+        Label226.Location = New Point(82, 785)
+        Label226.Name = "Label226"
+        Label226.Size = New Size(70, 15)
+        Label226.TabIndex = 310
+        Label226.Text = "Tidak Minat"
+        ' 
+        ' Label227
+        ' 
+        Label227.AutoSize = True
+        Label227.Location = New Point(82, 872)
+        Label227.Name = "Label227"
+        Label227.Size = New Size(70, 15)
+        Label227.TabIndex = 311
+        Label227.Text = "Tidak Minat"
+        ' 
+        ' Label228
+        ' 
+        Label228.AutoSize = True
+        Label228.Location = New Point(82, 961)
+        Label228.Name = "Label228"
+        Label228.Size = New Size(70, 15)
+        Label228.TabIndex = 312
+        Label228.Text = "Tidak Minat"
+        ' 
+        ' Label229
+        ' 
+        Label229.AutoSize = True
+        Label229.Location = New Point(82, 1057)
+        Label229.Name = "Label229"
+        Label229.Size = New Size(70, 15)
+        Label229.TabIndex = 313
+        Label229.Text = "Tidak Minat"
+        ' 
+        ' Label230
+        ' 
+        Label230.AutoSize = True
+        Label230.Location = New Point(82, 1148)
+        Label230.Name = "Label230"
+        Label230.Size = New Size(70, 15)
+        Label230.TabIndex = 314
+        Label230.Text = "Tidak Minat"
+        ' 
+        ' Label231
+        ' 
+        Label231.AutoSize = True
+        Label231.Location = New Point(82, 1241)
+        Label231.Name = "Label231"
+        Label231.Size = New Size(70, 15)
+        Label231.TabIndex = 315
+        Label231.Text = "Tidak Minat"
+        ' 
+        ' Label232
+        ' 
+        Label232.AutoSize = True
+        Label232.Location = New Point(82, 1337)
+        Label232.Name = "Label232"
+        Label232.Size = New Size(70, 15)
+        Label232.TabIndex = 316
+        Label232.Text = "Tidak Minat"
+        ' 
+        ' Label233
+        ' 
+        Label233.AutoSize = True
+        Label233.Location = New Point(82, 1437)
+        Label233.Name = "Label233"
+        Label233.Size = New Size(70, 15)
+        Label233.TabIndex = 317
+        Label233.Text = "Tidak Minat"
+        ' 
+        ' Label234
+        ' 
+        Label234.AutoSize = True
+        Label234.Location = New Point(82, 1533)
+        Label234.Name = "Label234"
+        Label234.Size = New Size(70, 15)
+        Label234.TabIndex = 318
+        Label234.Text = "Tidak Minat"
+        ' 
+        ' Label235
+        ' 
+        Label235.AutoSize = True
+        Label235.Location = New Point(82, 1627)
+        Label235.Name = "Label235"
+        Label235.Size = New Size(70, 15)
+        Label235.TabIndex = 319
+        Label235.Text = "Tidak Minat"
+        ' 
+        ' Label236
+        ' 
+        Label236.AutoSize = True
+        Label236.Location = New Point(82, 1721)
+        Label236.Name = "Label236"
+        Label236.Size = New Size(70, 15)
+        Label236.TabIndex = 320
+        Label236.Text = "Tidak Minat"
+        ' 
+        ' Label237
+        ' 
+        Label237.AutoSize = True
+        Label237.Location = New Point(408, 232)
+        Label237.Name = "Label237"
+        Label237.Size = New Size(38, 15)
+        Label237.TabIndex = 321
+        Label237.Text = "Minat"
+        ' 
+        ' Label238
+        ' 
+        Label238.AutoSize = True
+        Label238.Location = New Point(408, 331)
+        Label238.Name = "Label238"
+        Label238.Size = New Size(38, 15)
+        Label238.TabIndex = 322
+        Label238.Text = "Minat"
+        ' 
+        ' Label239
+        ' 
+        Label239.AutoSize = True
+        Label239.Location = New Point(408, 432)
+        Label239.Name = "Label239"
+        Label239.Size = New Size(38, 15)
+        Label239.TabIndex = 323
+        Label239.Text = "Minat"
+        ' 
+        ' Label240
+        ' 
+        Label240.AutoSize = True
+        Label240.Location = New Point(408, 524)
+        Label240.Name = "Label240"
+        Label240.Size = New Size(38, 15)
+        Label240.TabIndex = 324
+        Label240.Text = "Minat"
+        ' 
+        ' Label241
+        ' 
+        Label241.AutoSize = True
+        Label241.Location = New Point(408, 606)
+        Label241.Name = "Label241"
+        Label241.Size = New Size(38, 15)
+        Label241.TabIndex = 325
+        Label241.Text = "Minat"
+        ' 
+        ' Label242
+        ' 
+        Label242.AutoSize = True
+        Label242.Location = New Point(408, 696)
+        Label242.Name = "Label242"
+        Label242.Size = New Size(38, 15)
+        Label242.TabIndex = 326
+        Label242.Text = "Minat"
+        ' 
+        ' Label243
+        ' 
+        Label243.AutoSize = True
+        Label243.Location = New Point(408, 785)
+        Label243.Name = "Label243"
+        Label243.Size = New Size(38, 15)
+        Label243.TabIndex = 327
+        Label243.Text = "Minat"
+        ' 
+        ' Label244
+        ' 
+        Label244.AutoSize = True
+        Label244.Location = New Point(408, 872)
+        Label244.Name = "Label244"
+        Label244.Size = New Size(38, 15)
+        Label244.TabIndex = 328
+        Label244.Text = "Minat"
+        ' 
+        ' Label245
+        ' 
+        Label245.AutoSize = True
+        Label245.Location = New Point(408, 961)
+        Label245.Name = "Label245"
+        Label245.Size = New Size(38, 15)
+        Label245.TabIndex = 329
+        Label245.Text = "Minat"
+        ' 
+        ' Label246
+        ' 
+        Label246.AutoSize = True
+        Label246.Location = New Point(408, 1057)
+        Label246.Name = "Label246"
+        Label246.Size = New Size(38, 15)
+        Label246.TabIndex = 330
+        Label246.Text = "Minat"
+        ' 
+        ' Label247
+        ' 
+        Label247.AutoSize = True
+        Label247.Location = New Point(408, 1148)
+        Label247.Name = "Label247"
+        Label247.Size = New Size(38, 15)
+        Label247.TabIndex = 331
+        Label247.Text = "Minat"
+        ' 
+        ' Label248
+        ' 
+        Label248.AutoSize = True
+        Label248.Location = New Point(408, 1241)
+        Label248.Name = "Label248"
+        Label248.Size = New Size(38, 15)
+        Label248.TabIndex = 332
+        Label248.Text = "Minat"
+        ' 
+        ' Label249
+        ' 
+        Label249.AutoSize = True
+        Label249.Location = New Point(408, 1337)
+        Label249.Name = "Label249"
+        Label249.Size = New Size(38, 15)
+        Label249.TabIndex = 333
+        Label249.Text = "Minat"
+        ' 
+        ' Label250
+        ' 
+        Label250.AutoSize = True
+        Label250.Location = New Point(408, 1437)
+        Label250.Name = "Label250"
+        Label250.Size = New Size(38, 15)
+        Label250.TabIndex = 334
+        Label250.Text = "Minat"
+        ' 
+        ' Label251
+        ' 
+        Label251.AutoSize = True
+        Label251.Location = New Point(408, 1533)
+        Label251.Name = "Label251"
+        Label251.Size = New Size(38, 15)
+        Label251.TabIndex = 335
+        Label251.Text = "Minat"
+        ' 
+        ' Label252
+        ' 
+        Label252.AutoSize = True
+        Label252.Location = New Point(408, 1627)
+        Label252.Name = "Label252"
+        Label252.Size = New Size(38, 15)
+        Label252.TabIndex = 336
+        Label252.Text = "Minat"
+        ' 
+        ' Label253
+        ' 
+        Label253.AutoSize = True
+        Label253.Location = New Point(408, 1721)
+        Label253.Name = "Label253"
+        Label253.Size = New Size(38, 15)
+        Label253.TabIndex = 337
+        Label253.Text = "Minat"
+        ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         AutoScroll = True
         BackColor = SystemColors.Control
         ClientSize = New Size(800, 545)
+        Controls.Add(Label253)
+        Controls.Add(Label252)
+        Controls.Add(Label251)
+        Controls.Add(Label250)
+        Controls.Add(Label249)
+        Controls.Add(Label248)
+        Controls.Add(Label247)
+        Controls.Add(Label246)
+        Controls.Add(Label245)
+        Controls.Add(Label244)
+        Controls.Add(Label243)
+        Controls.Add(Label242)
+        Controls.Add(Label241)
+        Controls.Add(Label240)
+        Controls.Add(Label239)
+        Controls.Add(Label238)
+        Controls.Add(Label237)
+        Controls.Add(Label236)
+        Controls.Add(Label235)
+        Controls.Add(Label234)
+        Controls.Add(Label233)
+        Controls.Add(Label232)
+        Controls.Add(Label231)
+        Controls.Add(Label230)
+        Controls.Add(Label229)
+        Controls.Add(Label228)
+        Controls.Add(Label227)
+        Controls.Add(Label226)
+        Controls.Add(Label225)
+        Controls.Add(Label224)
+        Controls.Add(Label223)
+        Controls.Add(Label222)
+        Controls.Add(Label221)
+        Controls.Add(Label220)
+        Controls.Add(Label219)
+        Controls.Add(Label218)
         Controls.Add(Label206)
         Controls.Add(Label207)
         Controls.Add(Label208)
@@ -2885,5 +3281,41 @@ Partial Class Form1
     Friend WithEvents Label216 As Label
     Friend WithEvents TrackBar18 As TrackBar
     Friend WithEvents Label217 As Label
+    Friend WithEvents Label218 As Label
+    Friend WithEvents Label219 As Label
+    Friend WithEvents Label220 As Label
+    Friend WithEvents Label221 As Label
+    Friend WithEvents Label222 As Label
+    Friend WithEvents Label223 As Label
+    Friend WithEvents Label224 As Label
+    Friend WithEvents Label225 As Label
+    Friend WithEvents Label226 As Label
+    Friend WithEvents Label227 As Label
+    Friend WithEvents Label228 As Label
+    Friend WithEvents Label229 As Label
+    Friend WithEvents Label230 As Label
+    Friend WithEvents Label231 As Label
+    Friend WithEvents Label232 As Label
+    Friend WithEvents Label233 As Label
+    Friend WithEvents Label234 As Label
+    Friend WithEvents Label235 As Label
+    Friend WithEvents Label236 As Label
+    Friend WithEvents Label237 As Label
+    Friend WithEvents Label238 As Label
+    Friend WithEvents Label239 As Label
+    Friend WithEvents Label240 As Label
+    Friend WithEvents Label241 As Label
+    Friend WithEvents Label242 As Label
+    Friend WithEvents Label243 As Label
+    Friend WithEvents Label244 As Label
+    Friend WithEvents Label245 As Label
+    Friend WithEvents Label246 As Label
+    Friend WithEvents Label247 As Label
+    Friend WithEvents Label248 As Label
+    Friend WithEvents Label249 As Label
+    Friend WithEvents Label250 As Label
+    Friend WithEvents Label251 As Label
+    Friend WithEvents Label252 As Label
+    Friend WithEvents Label253 As Label
 
 End Class
