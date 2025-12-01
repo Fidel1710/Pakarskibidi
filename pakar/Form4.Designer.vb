@@ -22,6 +22,7 @@ Partial Class Form4
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
         Button1 = New Button()
@@ -41,14 +42,15 @@ Partial Class Form4
         TextBox1 = New TextBox()
         Label1 = New Label()
         TabPage2 = New TabPage()
+        Button4 = New Button()
+        Button3 = New Button()
+        Button2 = New Button()
+        TextBox2 = New TextBox()
+        Label9 = New Label()
         DataGridView1 = New DataGridView()
         ID = New DataGridViewTextBoxColumn()
         matkul = New DataGridViewTextBoxColumn()
-        Label9 = New Label()
-        TextBox2 = New TextBox()
-        Button2 = New Button()
-        Button3 = New Button()
-        Button4 = New Button()
+        ErrorProvider1 = New ErrorProvider(components)
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         CType(NumericUpDown3, ComponentModel.ISupportInitialize).BeginInit()
@@ -56,6 +58,7 @@ Partial Class Form4
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
         TabPage2.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' TabControl1
@@ -243,6 +246,49 @@ Partial Class Form4
         TabPage2.Text = "Mata Kuliah"
         TabPage2.UseVisualStyleBackColor = True
         ' 
+        ' Button4
+        ' 
+        Button4.Location = New Point(271, 356)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(75, 23)
+        Button4.TabIndex = 6
+        Button4.Text = "Hapus"
+        Button4.UseVisualStyleBackColor = True
+        ' 
+        ' Button3
+        ' 
+        Button3.Location = New Point(190, 356)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(75, 23)
+        Button3.TabIndex = 5
+        Button3.Text = "Tambah"
+        Button3.UseVisualStyleBackColor = True
+        ' 
+        ' Button2
+        ' 
+        Button2.Location = New Point(109, 356)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(75, 23)
+        Button2.TabIndex = 4
+        Button2.Text = "Edit"
+        Button2.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.Location = New Point(109, 318)
+        TextBox2.Name = "TextBox2"
+        TextBox2.Size = New Size(271, 23)
+        TextBox2.TabIndex = 3
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Location = New Point(18, 318)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(70, 15)
+        Label9.TabIndex = 2
+        Label9.Text = "Mata Kuliah"
+        ' 
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -262,48 +308,9 @@ Partial Class Form4
         matkul.HeaderText = "Mata Kuliah"
         matkul.Name = "matkul"
         ' 
-        ' Label9
+        ' ErrorProvider1
         ' 
-        Label9.AutoSize = True
-        Label9.Location = New Point(18, 318)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(70, 15)
-        Label9.TabIndex = 2
-        Label9.Text = "Mata Kuliah"
-        ' 
-        ' TextBox2
-        ' 
-        TextBox2.Location = New Point(109, 318)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(271, 23)
-        TextBox2.TabIndex = 3
-        ' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(109, 356)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(75, 23)
-        Button2.TabIndex = 4
-        Button2.Text = "Edit"
-        Button2.UseVisualStyleBackColor = True
-        ' 
-        ' Button3
-        ' 
-        Button3.Location = New Point(190, 356)
-        Button3.Name = "Button3"
-        Button3.Size = New Size(75, 23)
-        Button3.TabIndex = 5
-        Button3.Text = "Tambah"
-        Button3.UseVisualStyleBackColor = True
-        ' 
-        ' Button4
-        ' 
-        Button4.Location = New Point(271, 356)
-        Button4.Name = "Button4"
-        Button4.Size = New Size(75, 23)
-        Button4.TabIndex = 6
-        Button4.Text = "Hapus"
-        Button4.UseVisualStyleBackColor = True
+        ErrorProvider1.ContainerControl = Me
         ' 
         ' Form4
         ' 
@@ -322,6 +329,7 @@ Partial Class Form4
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -352,4 +360,5 @@ Partial Class Form4
     Friend WithEvents Button2 As Button
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class
