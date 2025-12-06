@@ -3,7 +3,6 @@
 Public Class FormAdmin
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Using conn As SqlConnection = getConnection()
 
             ' LOAD DATAGRID
@@ -30,7 +29,9 @@ Public Class FormAdmin
     End Sub
 
     Private Sub FormAdmin_Closed(sender As Object, e As EventArgs) Handles MyBase.Closed
-        Application.Exit() '
+        Me.Hide()
+        Dim frm As New FormLogin()
+        frm.Show()
     End Sub
 
 

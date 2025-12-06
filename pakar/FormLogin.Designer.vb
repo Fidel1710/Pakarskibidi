@@ -70,8 +70,10 @@ Partial Class FormLogin
         ' 
         TextBox2.Location = New Point(259, 234)
         TextBox2.Name = "TextBox2"
+        TextBox2.PasswordChar = "*"c
         TextBox2.Size = New Size(223, 23)
         TextBox2.TabIndex = 4
+        TextBox2.UseSystemPasswordChar = True
         ' 
         ' Button1
         ' 
@@ -93,7 +95,7 @@ Partial Class FormLogin
         ' 
         ' FormLogin
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(Button2)

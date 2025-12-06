@@ -1,4 +1,6 @@
 ﻿Imports Microsoft.Data.SqlClient
+Imports System.Security.Cryptography
+Imports System.Text
 
 Public Class FormLogin
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -10,6 +12,8 @@ Public Class FormLogin
             Return
         End If
 
+        Dim hashedPassword As String = HashPassword(password)
+
         Using conn As SqlConnection = getConnection()
             If conn Is Nothing Then Return
 
@@ -17,7 +21,7 @@ Public Class FormLogin
                 Dim query As String = "SELECT role FROM users WHERE username = @user AND password = @pass"
                 Dim cmd As New SqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@user", username)
-                cmd.Parameters.AddWithValue("@pass", password)
+                cmd.Parameters.AddWithValue("@pass", hashedPassword)
 
                 Dim role As Object = cmd.ExecuteScalar()
 
@@ -28,14 +32,14 @@ Public Class FormLogin
 
                 Dim userRole As String = role.ToString()
 
-                If userRole = "admin" Then
-                    MessageBox.Show("Selamat Datang Admin")
+                If userRole = "Admin" Then
+                    MessageBox.Show("Selamat Datang " & username)
                     Dim frm As New FormAdmin()
                     frm.Show()
                     Me.Hide()
 
-                ElseIf userRole = "user" Then
-                    MessageBox.Show("Selamat Datang User")
+                ElseIf userRole = "User" Then
+                    MessageBox.Show("Selamat Datang " & username)
                     Dim frm As New FormMain()
                     frm.Show()
                     Me.Hide()
@@ -50,13 +54,23 @@ Public Class FormLogin
         End Using
     End Sub
 
-    ' Tombol REGISTER (Button2) - Untuk pindah ke Form3
+    Private Function HashPassword(ByVal password As String) As String
+        Using sha256 As SHA256 = SHA256.Create()
+            Dim bytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(password))
+            Dim builder As New StringBuilder()
+            For i As Integer = 0 To bytes.Length - 1
+                builder.Append(bytes(i).ToString("x2"))
+            Next
+            Return builder.ToString()
+        End Using
+    End Function
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim frmReg As New FormRegister()
-        frmReg.ShowDialog() ' Buka sebagai dialog agar user fokus register
+        frmReg.ShowDialog()
     End Sub
 
     Private Sub FormLogin_Closed(sender As Object, e As EventArgs) Handles MyBase.Closed
-        Application.Exit() ' Pastikan aplikasi keluar saat form login ditutup
+        Application.Exit()
     End Sub
 End Class

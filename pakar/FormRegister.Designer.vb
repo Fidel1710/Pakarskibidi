@@ -28,12 +28,16 @@ Partial Class FormRegister
         Label2 = New Label()
         Label1 = New Label()
         Button1 = New Button()
+        Label4 = New Label()
+        ComboBox1 = New ComboBox()
         SuspendLayout()
         ' 
         ' TextBox2
         ' 
         TextBox2.Location = New Point(289, 225)
+        TextBox2.Multiline = True
         TextBox2.Name = "TextBox2"
+        TextBox2.PasswordChar = "*"c
         TextBox2.Size = New Size(223, 23)
         TextBox2.TabIndex = 11
         ' 
@@ -74,18 +78,38 @@ Partial Class FormRegister
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(364, 266)
+        Button1.Location = New Point(364, 324)
         Button1.Name = "Button1"
         Button1.Size = New Size(75, 23)
         Button1.TabIndex = 12
         Button1.Text = "Register"
         Button1.UseVisualStyleBackColor = True
         ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(292, 254)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(30, 15)
+        Label4.TabIndex = 13
+        Label4.Text = "Role"
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"User", "Admin"})
+        ComboBox1.Location = New Point(289, 272)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(223, 23)
+        ComboBox1.TabIndex = 14
+        ' 
         ' FormRegister
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(ComboBox1)
+        Controls.Add(Label4)
         Controls.Add(Button1)
         Controls.Add(TextBox2)
         Controls.Add(TextBox1)
@@ -103,4 +127,6 @@ Partial Class FormRegister
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

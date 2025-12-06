@@ -52,6 +52,12 @@ Public Class FormMain
         End Try
     End Sub
 
+    Private Sub FormMain_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Hide()
+        Dim frm As New FormLogin()
+        frm.Show()
+    End Sub
+
     Private Sub LoadMataKuliah()
         mataKuliahList.Clear()
 
