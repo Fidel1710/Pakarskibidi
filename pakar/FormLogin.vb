@@ -1,14 +1,12 @@
 ﻿Imports Microsoft.Data.SqlClient
 
 Public Class FormLogin
-
-    ' Tombol LOGIN (Button1)
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim username As String = TextBox1.Text.Trim()
         Dim password As String = TextBox2.Text.Trim()
 
         If username = "" Or password = "" Then
-            MessageBox.Show("Isi username dan password!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Isi username dan password!", "Peringatan")
             Return
         End If
 
@@ -16,25 +14,34 @@ Public Class FormLogin
             If conn Is Nothing Then Return
 
             Try
-                ' Cek Username dan Password di Database
-                Dim query As String = "SELECT COUNT(*) FROM tbl_user WHERE username = @user AND password = @pass"
+                Dim query As String = "SELECT role FROM users WHERE username = @user AND password = @pass"
                 Dim cmd As New SqlCommand(query, conn)
                 cmd.Parameters.AddWithValue("@user", username)
                 cmd.Parameters.AddWithValue("@pass", password)
 
-                Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+                Dim role As Object = cmd.ExecuteScalar()
 
-                If count > 0 Then
-                    MessageBox.Show("Login Berhasil!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                If role Is Nothing Then
+                    MessageBox.Show("Username atau Password salah!", "Gagal")
+                    Return
+                End If
 
-                    ' Buka Form Utama (Form1 - Sistem Pakar)
-                    Dim frmUtama As New FormMain()
-                    frmUtama.Show()
+                Dim userRole As String = role.ToString()
 
-                    ' Sembunyikan Form Login
+                If userRole = "admin" Then
+                    MessageBox.Show("Selamat Datang Admin")
+                    Dim frm As New FormAdmin()
+                    frm.Show()
                     Me.Hide()
+
+                ElseIf userRole = "user" Then
+                    MessageBox.Show("Selamat Datang User")
+                    Dim frm As New FormMain()
+                    frm.Show()
+                    Me.Hide()
+
                 Else
-                    MessageBox.Show("Username atau Password salah!", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Role tidak dikenali!", "Error")
                 End If
 
             Catch ex As Exception
@@ -49,7 +56,7 @@ Public Class FormLogin
         frmReg.ShowDialog() ' Buka sebagai dialog agar user fokus register
     End Sub
 
-    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub FormLogin_Closed(sender As Object, e As EventArgs) Handles MyBase.Closed
+        Application.Exit() ' Pastikan aplikasi keluar saat form login ditutup
     End Sub
 End Class

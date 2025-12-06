@@ -1,252 +1,291 @@
-﻿' ===== FormMain.vb =====
+﻿Imports Microsoft.Data.SqlClient
+
+' ===== FormMain.vb =====
 Public Class FormMain
-    ' Struktur data untuk menyimpan informasi judul
-    Structure JudulTugasAkhir
-        Dim Kode As String
+    ' Struktur data untuk menyimpan informasi mata kuliah
+    Structure MataKuliah
+        Dim Id As Integer
         Dim Nama As String
-        Dim MataKuliah As List(Of String)
-        Dim CFPakar As List(Of Double)
+        Dim TrackBar As TrackBar
+        Dim LabelNama As Label
+        Dim LabelNilai As Label
     End Structure
 
-    ' Dictionary untuk menyimpan data judul
+    ' Struktur data untuk menyimpan informasi judul
+    Structure JudulTugasAkhir
+        Dim Id As Integer
+        Dim Judul As String
+        Dim MataKuliah1 As Integer
+        Dim CF1 As Double
+        Dim MataKuliah2 As Integer?
+        Dim CF2 As Double
+        Dim MataKuliah3 As Integer?
+        Dim CF3 As Double
+    End Structure
+
+    ' List untuk menyimpan data
+    Private mataKuliahList As New List(Of MataKuliah)
     Private judulList As New List(Of JudulTugasAkhir)
 
-    ' Array nama mata kuliah sesuai dengan trackbar
-    Private namaMK() As String = {
-        "MK01 - Teori Automata",
-        "MK02 - AR and VR",
-        "MK03 - Mobile Programming",
-        "MK04 - Sistem Pendukung Keputusan",
-        "MK05 - Database",
-        "MK06 - Web Programming",
-        "MK07 - Data Mining",
-        "MK08 - Data Science",
-        "MK09 - Analisis Data",
-        "MK10 - Sistem Pakar",
-        "MK11 - Manajemen Software",
-        "MK12 - Big Data",
-        "MK13 - Sistem Otomasi",
-        "MK14 - IoT",
-        "MK15 - Artificial Intelligence",
-        "MK16 - Pengolahan Citra",
-        "MK17 - Robotik",
-        "MK18 - Jaringan Komputer"
-    }
+    ' Panel untuk menampung kontrol dinamis
+    Private panelKonten As New Panel()
+    Private panelButton As New Panel()
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Inisialisasi trackbar
-        InitializeTrackbars()
+        Try
+            ' Setup form
+            Me.Text = "Sistem Pakar Rekomendasi Tugas Akhir"
+            Me.WindowState = FormWindowState.Maximized
+            Me.AutoScroll = True
 
-        ' Load data judul tugas akhir
-        LoadDataJudul()
+            ' Load data dari database
+            LoadMataKuliah()
+            LoadRules()
 
-        ' Setup UI
-        SetupUI()
+            ' Buat UI dinamis
+            CreateDynamicUI()
+
+            MessageBox.Show($"Berhasil memuat {mataKuliahList.Count} mata kuliah dan {judulList.Count} rules.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Error saat memuat data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-    Private Sub InitializeTrackbars()
-        ' Setup 18 trackbar dengan nilai 0-100 (akan dikonversi ke 0-1)
-        Dim trackbars() As TrackBar = {TrackBar1, TrackBar2, TrackBar3, TrackBar4, TrackBar5,
-                                       TrackBar6, TrackBar7, TrackBar8, TrackBar9, TrackBar10,
-                                       TrackBar11, TrackBar12, TrackBar13, TrackBar14, TrackBar15,
-                                       TrackBar16, TrackBar17, TrackBar18}
+    Private Sub LoadMataKuliah()
+        mataKuliahList.Clear()
 
-        For i As Integer = 0 To trackbars.Length - 1
-            trackbars(i).Minimum = 0
-            trackbars(i).Maximum = 100
-            trackbars(i).Value = 0
-            trackbars(i).TickFrequency = 10
-
-            ' Add event handler untuk update label
-            AddHandler trackbars(i).ValueChanged, AddressOf TrackBar_ValueChanged
-        Next
+        Using conn As SqlConnection = modulkoneksi.getConnection()
+            If conn IsNot Nothing Then
+                Dim query As String = "SELECT id, nama_mata_kuliah FROM matakuliah ORDER BY id"
+                Using cmd As New SqlCommand(query, conn)
+                    Using reader As SqlDataReader = cmd.ExecuteReader()
+                        While reader.Read()
+                            Dim mk As New MataKuliah With {
+                                .Id = reader.GetInt32(0),
+                                .Nama = reader.GetString(1)
+                            }
+                            mataKuliahList.Add(mk)
+                        End While
+                    End Using
+                End Using
+                conn.Close()
+            End If
+        End Using
     End Sub
 
-    Private Sub SetupUI()
-        ' Setup label untuk trackbar
-        UpdateAllLabels()
-    End Sub
-
-    Private Sub LoadDataJudul()
+    Private Sub LoadRules()
         judulList.Clear()
 
-        ' J01
-        Dim j01 As New JudulTugasAkhir With {
-            .Kode = "J01",
-            .Nama = "Rancang Bangun Game 2D Shooter Platformer Menggunakan Metode Finite State Machine",
-            .MataKuliah = New List(Of String) From {"MK01", "MK02", "MK03"},
-            .CFPakar = New List(Of Double) From {0.9, 0.8, 0.4}
-        }
-        judulList.Add(j01)
+        Using conn As SqlConnection = modulkoneksi.getConnection()
+            If conn IsNot Nothing Then
+                Dim query As String = "SELECT id, judul, mata_kuliah1, cf1, mata_kuliah2, cf2, mata_kuliah3, cf3 FROM rules ORDER BY id"
+                Using cmd As New SqlCommand(query, conn)
+                    Using reader As SqlDataReader = cmd.ExecuteReader()
+                        While reader.Read()
+                            Dim judul As New JudulTugasAkhir With {
+                                .Id = reader.GetInt32(0),
+                                .Judul = reader.GetString(1),
+                                .MataKuliah1 = reader.GetInt32(2),
+                                .CF1 = reader.GetDouble(3),
+                                .MataKuliah2 = If(reader.IsDBNull(4), Nothing, CType(reader.GetInt32(4), Integer?)),
+                                .CF2 = If(reader.IsDBNull(5), 0, reader.GetDouble(5)),
+                                .MataKuliah3 = If(reader.IsDBNull(6), Nothing, CType(reader.GetInt32(6), Integer?)),
+                                .CF3 = If(reader.IsDBNull(7), 0, reader.GetDouble(7))
+                            }
+                            judulList.Add(judul)
+                        End While
+                    End Using
+                End Using
+                conn.Close()
+            End If
+        End Using
+    End Sub
 
-        ' J02
-        Dim j02 As New JudulTugasAkhir With {
-            .Kode = "J02",
-            .Nama = "Sistem Informasi Inventory Menggunakan Framework Bootstrap",
-            .MataKuliah = New List(Of String) From {"MK04", "MK05", "MK06"},
-            .CFPakar = New List(Of Double) From {0.9, 0.8, 0.5}
-        }
-        judulList.Add(j02)
+    Private Sub CreateDynamicUI()
+        ' Clear existing controls
+        Me.Controls.Clear()
 
-        ' J03
-        Dim j03 As New JudulTugasAkhir With {
-            .Kode = "J03",
-            .Nama = "Prediksi Permintaan Mata Kuliah Pada Semester Padat Dengan Menggunakan Teknik Association Rule Dengan Algoritma Apriori",
-            .MataKuliah = New List(Of String) From {"MK07", "MK08", "MK09"},
-            .CFPakar = New List(Of Double) From {0.8, 0.6, 0.9}
-        }
-        judulList.Add(j03)
+        ' Setup panel konten
+        panelKonten.Dock = DockStyle.Fill
+        panelKonten.AutoScroll = True
+        panelKonten.Padding = New Padding(20)
+        panelKonten.BackColor = Color.FromArgb(240, 240, 240)
+        Me.Controls.Add(panelKonten)
 
-        ' J04
-        Dim j04 As New JudulTugasAkhir With {
-            .Kode = "J04",
-            .Nama = "Analisis Perbandingan Framework CodeIgniter Dan Framework Laravel",
-            .MataKuliah = New List(Of String) From {"MK06", "MK09", "MK11"},
-            .CFPakar = New List(Of Double) From {0.8, 0.3, 0.5}
-        }
-        judulList.Add(j04)
+        ' Setup panel button
+        panelButton.Dock = DockStyle.Bottom
+        panelButton.Height = 80
+        panelButton.Padding = New Padding(20)
+        panelButton.BackColor = Color.White
+        Me.Controls.Add(panelButton)
 
-        ' J05
-        Dim j05 As New JudulTugasAkhir With {
-            .Kode = "J05",
-            .Nama = "Sistem Pakar Diagnosa Penyakit Pencernaan Pada Manusia Menggunakan Metode Certainty Factor Berbasis Web",
-            .MataKuliah = New List(Of String) From {"MK10", "MK06", "MK09"},
-            .CFPakar = New List(Of Double) From {1.0, 0.8, 0.6}
-        }
-        judulList.Add(j05)
+        Dim yPosition As Integer = 20
 
-        ' J06
-        Dim j06 As New JudulTugasAkhir With {
-            .Kode = "J06",
-            .Nama = "Klasifikasi Topik Berita Dan Analisis Sentimen Pada Tweets Divisi Humas Polri Dengan Metode Naïve Bayes Classifier",
-            .MataKuliah = New List(Of String) From {"MK07", "MK09", "MK12"},
-            .CFPakar = New List(Of Double) From {0.9, 0.8, 0.5}
-        }
-        judulList.Add(j06)
+        ' Buat header
+        Dim lblHeader As New Label()
+        lblHeader.Text = "SISTEM PAKAR REKOMENDASI TUGAS AKHIR MAHASISWA"
+        lblHeader.Font = New Font("Segoe UI", 16, FontStyle.Bold)
+        lblHeader.AutoSize = True
+        lblHeader.Location = New Point(20, yPosition)
+        lblHeader.ForeColor = Color.FromArgb(0, 122, 204)
+        panelKonten.Controls.Add(lblHeader)
+        yPosition += 50
 
-        ' J07
-        Dim j07 As New JudulTugasAkhir With {
-            .Kode = "J07",
-            .Nama = "Group Decision Support System (GDSS) untuk Pemilihan Konsentrasi Studi Mahasiswa Menggunakan AHP dan TOPSIS",
-            .MataKuliah = New List(Of String) From {"MK04", "MK07", "MK11"},
-            .CFPakar = New List(Of Double) From {1.0, 0.8, 0.2}
-        }
-        judulList.Add(j07)
+        Dim lblSubHeader As New Label()
+        lblSubHeader.Text = "Silakan tentukan tingkat kepercayaan Anda terhadap setiap mata kuliah (0-100)"
+        lblSubHeader.Font = New Font("Segoe UI", 10, FontStyle.Regular)
+        lblSubHeader.AutoSize = True
+        lblSubHeader.Location = New Point(20, yPosition)
+        lblSubHeader.ForeColor = Color.FromArgb(64, 64, 64)
+        panelKonten.Controls.Add(lblSubHeader)
+        yPosition += 40
 
-        ' J08
-        Dim j08 As New JudulTugasAkhir With {
-            .Kode = "J08",
-            .Nama = "Sistem Monitoring Keadaan Ruang Laboratorium Berbasis IoT",
-            .MataKuliah = New List(Of String) From {"MK13", "MK03", "MK14"},
-            .CFPakar = New List(Of Double) From {1.0, 0.8, 0.8}
-        }
-        judulList.Add(j08)
+        ' Buat separator
+        Dim separator1 As New Panel()
+        separator1.Height = 2
+        separator1.Width = Me.Width - 60
+        separator1.BackColor = Color.FromArgb(0, 122, 204)
+        separator1.Location = New Point(20, yPosition)
+        panelKonten.Controls.Add(separator1)
+        yPosition += 20
 
-        ' J09
-        Dim j09 As New JudulTugasAkhir With {
-            .Kode = "J09",
-            .Nama = "Penerapan Metode Jaringan Syaraf Tiruan Pada Sistem Deteksi Citra Darah Manusia",
-            .MataKuliah = New List(Of String) From {"MK15", "MK16", "MK09"},
-            .CFPakar = New List(Of Double) From {0.8, 1.0, 0.6}
-        }
-        judulList.Add(j09)
+        ' Buat kontrol untuk setiap mata kuliah
+        For i As Integer = 0 To mataKuliahList.Count - 1
+            Dim mk As MataKuliah = mataKuliahList(i)
 
-        ' J10
-        Dim j10 As New JudulTugasAkhir With {
-            .Kode = "J10",
-            .Nama = "Aplikasi Manajemen Central Rental Mobil Menggunakan Framework CodeIgniter",
-            .MataKuliah = New List(Of String) From {"MK06", "MK11", "MK05"},
-            .CFPakar = New List(Of Double) From {1.0, 0.6, 0.4}
-        }
-        judulList.Add(j10)
+            ' Panel untuk setiap item
+            Dim itemPanel As New Panel()
+            itemPanel.Location = New Point(20, yPosition)
+            itemPanel.Width = Me.Width - 80
+            itemPanel.Height = 100
+            itemPanel.BackColor = Color.White
+            itemPanel.BorderStyle = BorderStyle.FixedSingle
+            panelKonten.Controls.Add(itemPanel)
 
-        ' J11
-        Dim j11 As New JudulTugasAkhir With {
-            .Kode = "J11",
-            .Nama = "Otomatisasi Penyiram Dan Pencahayaan Tanaman Buah Naga Berbasis Arduino Uno",
-            .MataKuliah = New List(Of String) From {"MK14", "MK13", "MK17"},
-            .CFPakar = New List(Of Double) From {0.9, 0.9, 0.4}
-        }
-        judulList.Add(j11)
+            ' Label nama mata kuliah dengan nomor
+            Dim lblNama As New Label()
+            lblNama.Text = $"{i + 1}. {mk.Nama}?"
+            lblNama.Font = New Font("Segoe UI", 11, FontStyle.Bold)
+            lblNama.AutoSize = True
+            lblNama.Location = New Point(10, 10)
+            lblNama.ForeColor = Color.FromArgb(33, 33, 33)
+            itemPanel.Controls.Add(lblNama)
+            mk.LabelNama = lblNama
 
-        ' J12
-        Dim j12 As New JudulTugasAkhir With {
-            .Kode = "J12",
-            .Nama = "Aplikasi Augmented Reality Pada Pemasaran Perumahan Berbasis Android",
-            .MataKuliah = New List(Of String) From {"MK02", "MK03", "MK11"},
-            .CFPakar = New List(Of Double) From {0.9, 0.8, 0.6}
-        }
-        judulList.Add(j12)
+            ' TrackBar
+            Dim trackBar As New TrackBar()
+            trackBar.Minimum = 0
+            trackBar.Maximum = 100
+            trackBar.Value = 0
+            trackBar.TickFrequency = 10
+            trackBar.Width = 600
+            trackBar.Location = New Point(10, 40)
+            trackBar.Tag = i ' Simpan index untuk referensi
+            AddHandler trackBar.ValueChanged, AddressOf TrackBar_ValueChanged
+            itemPanel.Controls.Add(trackBar)
+            mk.TrackBar = trackBar
 
-        ' J13
-        Dim j13 As New JudulTugasAkhir With {
-            .Kode = "J13",
-            .Nama = "Perancangan Dan Penerapan Aplikasi Kasir Dengan Menggunakan Bahasa Pemrograman PHP Dan MySQL",
-            .MataKuliah = New List(Of String) From {"MK05", "MK11", "MK06"},
-            .CFPakar = New List(Of Double) From {0.8, 0.6, 1.0}
-        }
-        judulList.Add(j13)
+            ' Label nilai di samping trackbar
+            Dim lblNilai As New Label()
+            lblNilai.Text = GetKepercayaanText(0)
+            lblNilai.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+            lblNilai.AutoSize = True
+            lblNilai.Location = New Point(620, 50)
+            lblNilai.ForeColor = Color.FromArgb(0, 122, 204)
+            itemPanel.Controls.Add(lblNilai)
+            mk.LabelNilai = lblNilai
 
-        ' J14
-        Dim j14 As New JudulTugasAkhir With {
-            .Kode = "J14",
-            .Nama = "Implementasi Metode Fuzzy Logic Untuk Sistem Pengukuran Kualitas Udara Di Kota Medan Berbasis IoT",
-            .MataKuliah = New List(Of String) From {"MK14", "MK09", "MK15"},
-            .CFPakar = New List(Of Double) From {1.0, 0.4, 0.2}
-        }
-        judulList.Add(j14)
+            ' Update data di list
+            mataKuliahList(i) = mk
 
-        ' J15
-        Dim j15 As New JudulTugasAkhir With {
-            .Kode = "J15",
-            .Nama = "Rancang Bangun Sistem Enkripsi Pengiriman Informasi Menggunakan Algoritma Kriptografi Klasik",
-            .MataKuliah = New List(Of String) From {"MK18", "MK16", "MK09"},
-            .CFPakar = New List(Of Double) From {0.8, 0.9, 0.4}
-        }
-        judulList.Add(j15)
+            yPosition += 110
+        Next
+
+        ' Set minimum height untuk panel konten
+        panelKonten.AutoScrollMinSize = New Size(0, yPosition + 20)
+
+        ' Tombol Proses
+        Dim btnProses As New Button()
+        btnProses.Text = "PROSES REKOMENDASI"
+        btnProses.Font = New Font("Segoe UI", 12, FontStyle.Bold)
+        btnProses.Size = New Size(250, 50)
+        btnProses.Location = New Point(20, 15)
+        btnProses.BackColor = Color.FromArgb(0, 122, 204)
+        btnProses.ForeColor = Color.White
+        btnProses.FlatStyle = FlatStyle.Flat
+        btnProses.FlatAppearance.BorderSize = 0
+        btnProses.Cursor = Cursors.Hand
+        AddHandler btnProses.Click, AddressOf ButtonProses_Click
+        panelButton.Controls.Add(btnProses)
+
+        ' Tombol Reset
+        Dim btnReset As New Button()
+        btnReset.Text = "RESET"
+        btnReset.Font = New Font("Segoe UI", 12, FontStyle.Bold)
+        btnReset.Size = New Size(150, 50)
+        btnReset.Location = New Point(290, 15)
+        btnReset.BackColor = Color.FromArgb(255, 87, 34)
+        btnReset.ForeColor = Color.White
+        btnReset.FlatStyle = FlatStyle.Flat
+        btnReset.FlatAppearance.BorderSize = 0
+        btnReset.Cursor = Cursors.Hand
+        AddHandler btnReset.Click, AddressOf ButtonReset_Click
+        panelButton.Controls.Add(btnReset)
+
+        ' Tombol Refresh Data
+        Dim btnRefresh As New Button()
+        btnRefresh.Text = "REFRESH DATA"
+        btnRefresh.Font = New Font("Segoe UI", 12, FontStyle.Bold)
+        btnRefresh.Size = New Size(200, 50)
+        btnRefresh.Location = New Point(460, 15)
+        btnRefresh.BackColor = Color.FromArgb(76, 175, 80)
+        btnRefresh.ForeColor = Color.White
+        btnRefresh.FlatStyle = FlatStyle.Flat
+        btnRefresh.FlatAppearance.BorderSize = 0
+        btnRefresh.Cursor = Cursors.Hand
+        AddHandler btnRefresh.Click, AddressOf ButtonRefresh_Click
+        panelButton.Controls.Add(btnRefresh)
     End Sub
 
     Private Sub TrackBar_ValueChanged(sender As Object, e As EventArgs)
-        UpdateAllLabels()
-    End Sub
+        Dim trackBar As TrackBar = CType(sender, TrackBar)
+        Dim index As Integer = CInt(trackBar.Tag)
 
-    Private Sub UpdateAllLabels()
-        ' Update label untuk setiap trackbar
-        Label1.Text = GetKepercayaanText(TrackBar1.Value)
-        Label2.Text = GetKepercayaanText(TrackBar2.Value)
-        Label3.Text = GetKepercayaanText(TrackBar3.Value)
-        Label4.Text = GetKepercayaanText(TrackBar4.Value)
-        Label5.Text = GetKepercayaanText(TrackBar5.Value)
-        Label6.Text = GetKepercayaanText(TrackBar6.Value)
-        Label7.Text = GetKepercayaanText(TrackBar7.Value)
-        Label8.Text = GetKepercayaanText(TrackBar8.Value)
-        Label9.Text = GetKepercayaanText(TrackBar9.Value)
-        Label10.Text = GetKepercayaanText(TrackBar10.Value)
-        Label11.Text = GetKepercayaanText(TrackBar11.Value)
-        Label12.Text = GetKepercayaanText(TrackBar12.Value)
-        Label13.Text = GetKepercayaanText(TrackBar13.Value)
-        Label14.Text = GetKepercayaanText(TrackBar14.Value)
-        Label15.Text = GetKepercayaanText(TrackBar15.Value)
-        Label16.Text = GetKepercayaanText(TrackBar16.Value)
-        Label17.Text = GetKepercayaanText(TrackBar17.Value)
-        Label18.Text = GetKepercayaanText(TrackBar18.Value)
+        If index >= 0 AndAlso index < mataKuliahList.Count Then
+            Dim mk As MataKuliah = mataKuliahList(index)
+            mk.LabelNilai.Text = GetKepercayaanText(trackBar.Value)
+
+            ' Update warna label berdasarkan nilai
+            If trackBar.Value = 0 Then
+                mk.LabelNilai.ForeColor = Color.Gray
+            ElseIf trackBar.Value <= 25 Then
+                mk.LabelNilai.ForeColor = Color.FromArgb(244, 67, 54) ' Red
+            ElseIf trackBar.Value <= 50 Then
+                mk.LabelNilai.ForeColor = Color.FromArgb(255, 152, 0) ' Orange
+            ElseIf trackBar.Value <= 70 Then
+                mk.LabelNilai.ForeColor = Color.FromArgb(3, 169, 244) ' Blue
+            Else
+                mk.LabelNilai.ForeColor = Color.FromArgb(76, 175, 80) ' Green
+            End If
+        End If
     End Sub
 
     Private Function GetKepercayaanText(nilai As Integer) As String
         Dim cf As Double = nilai / 100.0
 
         If cf = 0 Then
-            Return "Tidak Dipilih (0)"
+            Return "Tidak Dipilih (0.00)"
         ElseIf cf <= 0.1 Then
-            Return "Kurang Yakin (" & cf.ToString("0.00") & ")"
+            Return $"Kurang Yakin ({cf.ToString("0.00")})"
         ElseIf cf <= 0.25 Then
-            Return "Agak Yakin (" & cf.ToString("0.00") & ")"
+            Return $"Agak Yakin ({cf.ToString("0.00")})"
         ElseIf cf <= 0.5 Then
-            Return "Cukup Yakin (" & cf.ToString("0.00") & ")"
+            Return $"Cukup Yakin ({cf.ToString("0.00")})"
         ElseIf cf <= 0.7 Then
-            Return "Yakin (" & cf.ToString("0.00") & ")"
+            Return $"Yakin ({cf.ToString("0.00")})"
         Else
-            Return "Sangat Yakin (" & cf.ToString("0.00") & ")"
+            Return $"Sangat Yakin ({cf.ToString("0.00")})"
         End If
     End Function
 
@@ -260,106 +299,120 @@ Public Class FormMain
         Return cf1 + cf2 * (1 - cf1)
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub ButtonProses_Click(sender As Object, e As EventArgs)
         ' Validasi input - pastikan ada minimal 1 mata kuliah yang dipilih
         Dim adaPilihan As Boolean = False
-        For i As Integer = 1 To 18
-            Dim tb As TrackBar = CType(Me.Controls("TrackBar" & i.ToString()), TrackBar)
-            If tb.Value > 0 Then
+        For Each mk As MataKuliah In mataKuliahList
+            If mk.TrackBar.Value > 0 Then
                 adaPilihan = True
                 Exit For
             End If
         Next
 
         If Not adaPilihan Then
-            MessageBox.Show("Silakan pilih minimal satu mata kuliah dengan mengatur trackbar!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Silakan pilih minimal satu mata kuliah dengan mengatur nilai kepercayaan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' Ambil nilai CF dari trackbar (konversi ke 0-1)
-        Dim cfUser(17) As Double
-        cfUser(0) = TrackBar1.Value / 100.0
-        cfUser(1) = TrackBar2.Value / 100.0
-        cfUser(2) = TrackBar3.Value / 100.0
-        cfUser(3) = TrackBar4.Value / 100.0
-        cfUser(4) = TrackBar5.Value / 100.0
-        cfUser(5) = TrackBar6.Value / 100.0
-        cfUser(6) = TrackBar7.Value / 100.0
-        cfUser(7) = TrackBar8.Value / 100.0
-        cfUser(8) = TrackBar9.Value / 100.0
-        cfUser(9) = TrackBar10.Value / 100.0
-        cfUser(10) = TrackBar11.Value / 100.0
-        cfUser(11) = TrackBar12.Value / 100.0
-        cfUser(12) = TrackBar13.Value / 100.0
-        cfUser(13) = TrackBar14.Value / 100.0
-        cfUser(14) = TrackBar15.Value / 100.0
-        cfUser(15) = TrackBar16.Value / 100.0
-        cfUser(16) = TrackBar17.Value / 100.0
-        cfUser(17) = TrackBar18.Value / 100.0
+        Try
+            ' List untuk menyimpan hasil perhitungan
+            Dim hasilList As New List(Of Tuple(Of String, String, Double))
 
-        ' List untuk menyimpan hasil perhitungan
-        Dim hasilList As New List(Of Tuple(Of String, String, Double))
+            ' Hitung CF untuk setiap judul
+            For Each judul As JudulTugasAkhir In judulList
+                Dim cfList As New List(Of Double)
 
-        ' Hitung CF untuk setiap judul
-        For Each judul As JudulTugasAkhir In judulList
-            Dim cfList As New List(Of Double)
+                ' Cari CF user untuk mata kuliah 1
+                Dim mk1 As MataKuliah = mataKuliahList.FirstOrDefault(Function(x) x.Id = judul.MataKuliah1)
+                If mk1.TrackBar IsNot Nothing Then
+                    Dim cfUser1 As Double = mk1.TrackBar.Value / 100.0
+                    If cfUser1 > 0 Then
+                        Dim cf As Double = HitungCF(judul.CF1, cfUser1)
+                        cfList.Add(cf)
+                    End If
+                End If
 
-            ' Hitung CF untuk setiap mata kuliah yang relevan
-            For i As Integer = 0 To judul.MataKuliah.Count - 1
-                Dim mkIndex As Integer = Integer.Parse(judul.MataKuliah(i).Substring(2)) - 1
-                Dim cfPakar As Double = judul.CFPakar(i)
-                Dim cfUserMK As Double = cfUser(mkIndex)
+                ' Cari CF user untuk mata kuliah 2 (jika ada)
+                If judul.MataKuliah2.HasValue Then
+                    Dim mk2 As MataKuliah = mataKuliahList.FirstOrDefault(Function(x) x.Id = judul.MataKuliah2.Value)
+                    If mk2.TrackBar IsNot Nothing Then
+                        Dim cfUser2 As Double = mk2.TrackBar.Value / 100.0
+                        If cfUser2 > 0 Then
+                            Dim cf As Double = HitungCF(judul.CF2, cfUser2)
+                            cfList.Add(cf)
+                        End If
+                    End If
+                End If
 
-                ' Hanya hitung jika user memberikan nilai > 0
-                If cfUserMK > 0 Then
-                    Dim cf As Double = HitungCF(cfPakar, cfUserMK)
-                    cfList.Add(cf)
+                ' Cari CF user untuk mata kuliah 3 (jika ada)
+                If judul.MataKuliah3.HasValue Then
+                    Dim mk3 As MataKuliah = mataKuliahList.FirstOrDefault(Function(x) x.Id = judul.MataKuliah3.Value)
+                    If mk3.TrackBar IsNot Nothing Then
+                        Dim cfUser3 As Double = mk3.TrackBar.Value / 100.0
+                        If cfUser3 > 0 Then
+                            Dim cf As Double = HitungCF(judul.CF3, cfUser3)
+                            cfList.Add(cf)
+                        End If
+                    End If
+                End If
+
+                ' Kombinasikan CF jika ada
+                If cfList.Count > 0 Then
+                    Dim cfAkhir As Double = cfList(0)
+
+                    For i As Integer = 1 To cfList.Count - 1
+                        cfAkhir = HitungCFCombine(cfAkhir, cfList(i))
+                    Next
+
+                    Dim persentase As Double = cfAkhir * 100
+                    hasilList.Add(New Tuple(Of String, String, Double)($"J{judul.Id.ToString("D3")}", judul.Judul, persentase))
                 End If
             Next
 
-            ' Kombinasikan CF jika ada
-            If cfList.Count > 0 Then
-                Dim cfAkhir As Double = cfList(0)
+            ' Urutkan hasil berdasarkan persentase (descending)
+            hasilList.Sort(Function(x, y) y.Item3.CompareTo(x.Item3))
 
-                For i As Integer = 1 To cfList.Count - 1
-                    cfAkhir = HitungCFCombine(cfAkhir, cfList(i))
-                Next
+            ' Tampilkan hasil di FormHasil
+            If hasilList.Count > 0 Then
+                Dim formHasil As New FormHasil()
+                formHasil.SetHasil(hasilList)
+                formHasil.ShowDialog()
+            Else
+                MessageBox.Show("Tidak ada rekomendasi yang sesuai dengan pilihan Anda." & vbCrLf & "Pastikan mata kuliah yang dipilih sesuai dengan rules yang tersedia.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
 
-                Dim persentase As Double = cfAkhir * 100
-                hasilList.Add(New Tuple(Of String, String, Double)(judul.Kode, judul.Nama, persentase))
+        Catch ex As Exception
+            MessageBox.Show("Error saat memproses data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub ButtonReset_Click(sender As Object, e As EventArgs)
+        ' Reset semua trackbar ke 0
+        For Each mk As MataKuliah In mataKuliahList
+            If mk.TrackBar IsNot Nothing Then
+                mk.TrackBar.Value = 0
             End If
         Next
 
-        ' Urutkan hasil berdasarkan persentase (descending)
-        hasilList.Sort(Function(x, y) y.Item3.CompareTo(x.Item3))
+        MessageBox.Show("Semua input telah direset.", "Reset", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 
-        ' Tampilkan hasil di FormHasil
-        If hasilList.Count > 0 Then
-            Dim formHasil As New FormHasil()
-            formHasil.SetHasil(hasilList)
-            formHasil.ShowDialog()
-        Else
-            MessageBox.Show("Tidak ada rekomendasi yang sesuai dengan pilihan Anda.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
+    Private Sub ButtonRefresh_Click(sender As Object, e As EventArgs)
+        Try
+            ' Reload data dari database
+            LoadMataKuliah()
+            LoadRules()
 
-        TrackBar1.Value = 0
-        TrackBar2.Value = 0
-        TrackBar3.Value = 0
-        TrackBar4.Value = 0
-        TrackBar5.Value = 0
-        TrackBar6.Value = 0
-        TrackBar7.Value = 0
-        TrackBar8.Value = 0
-        TrackBar9.Value = 0
-        TrackBar10.Value = 0
-        TrackBar11.Value = 0
-        TrackBar12.Value = 0
-        TrackBar13.Value = 0
-        TrackBar14.Value = 0
-        TrackBar15.Value = 0
-        TrackBar16.Value = 0
-        TrackBar17.Value = 0
-        TrackBar18.Value = 0
+            ' Recreate UI
+            CreateDynamicUI()
+
+            MessageBox.Show($"Data berhasil direfresh!" & vbCrLf & vbCrLf &
+                          $"Mata Kuliah: {mataKuliahList.Count}" & vbCrLf &
+                          $"Rules: {judulList.Count}", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Error saat refresh data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class
 

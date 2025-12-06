@@ -48,8 +48,6 @@ Partial Class FormAdmin
         TextBox2 = New TextBox()
         Label9 = New Label()
         DataGridView1 = New DataGridView()
-        ID = New DataGridViewTextBoxColumn()
-        matkul = New DataGridViewTextBoxColumn()
         ErrorProvider1 = New ErrorProvider(components)
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
@@ -133,21 +131,30 @@ Partial Class FormAdmin
         ' 
         ' NumericUpDown3
         ' 
+        NumericUpDown3.DecimalPlaces = 2
+        NumericUpDown3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         NumericUpDown3.Location = New Point(297, 227)
+        NumericUpDown3.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         NumericUpDown3.Name = "NumericUpDown3"
         NumericUpDown3.Size = New Size(120, 23)
         NumericUpDown3.TabIndex = 12
         ' 
         ' NumericUpDown2
         ' 
+        NumericUpDown2.DecimalPlaces = 2
+        NumericUpDown2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         NumericUpDown2.Location = New Point(297, 179)
+        NumericUpDown2.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         NumericUpDown2.Name = "NumericUpDown2"
         NumericUpDown2.Size = New Size(120, 23)
         NumericUpDown2.TabIndex = 11
         ' 
         ' NumericUpDown1
         ' 
+        NumericUpDown1.DecimalPlaces = 2
+        NumericUpDown1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
         NumericUpDown1.Location = New Point(297, 133)
+        NumericUpDown1.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         NumericUpDown1.Name = "NumericUpDown1"
         NumericUpDown1.Size = New Size(120, 23)
         NumericUpDown1.TabIndex = 10
@@ -292,33 +299,22 @@ Partial Class FormAdmin
         ' DataGridView1
         ' 
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {ID, matkul})
         DataGridView1.Location = New Point(18, 6)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.Size = New Size(366, 293)
         DataGridView1.TabIndex = 1
         ' 
-        ' ID
-        ' 
-        ID.HeaderText = "ID"
-        ID.Name = "ID"
-        ' 
-        ' matkul
-        ' 
-        matkul.HeaderText = "Mata Kuliah"
-        matkul.Name = "matkul"
-        ' 
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
-        ' Form4
+        ' FormAdmin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(453, 429)
         Controls.Add(TabControl1)
-        Name = "Form4"
+        Name = "FormAdmin"
         Text = "Form4"
         TabControl1.ResumeLayout(False)
         TabPage1.ResumeLayout(False)
@@ -353,8 +349,6 @@ Partial Class FormAdmin
     Friend WithEvents Button1 As Button
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents matkul As DataGridViewTextBoxColumn
     Friend WithEvents Button4 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button

@@ -31,17 +31,17 @@ Partial Class FormHasil
         ' 
         ListBoxHasil.FormattingEnabled = True
         ListBoxHasil.ItemHeight = 15
-        ListBoxHasil.Location = New Point(362, 51)
+        ListBoxHasil.Location = New Point(561, 48)
         ListBoxHasil.Name = "ListBoxHasil"
-        ListBoxHasil.Size = New Size(363, 229)
+        ListBoxHasil.Size = New Size(216, 259)
         ListBoxHasil.TabIndex = 0
         ' 
         ' TextBoxDetail
         ' 
-        TextBoxDetail.Location = New Point(63, 91)
+        TextBoxDetail.Location = New Point(49, 48)
         TextBoxDetail.Multiline = True
         TextBoxDetail.Name = "TextBoxDetail"
-        TextBoxDetail.Size = New Size(187, 88)
+        TextBoxDetail.Size = New Size(450, 266)
         TextBoxDetail.TabIndex = 1
         ' 
         ' ButtonCetak
@@ -57,12 +57,13 @@ Partial Class FormHasil
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(1092, 624)
         Controls.Add(ButtonCetak)
         Controls.Add(TextBoxDetail)
         Controls.Add(ListBoxHasil)
         Name = "FormHasil"
         Text = "FormHasil"
+        WindowState = FormWindowState.Maximized
         ResumeLayout(False)
         PerformLayout()
     End Sub

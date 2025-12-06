@@ -6,6 +6,7 @@ Public Class FormRegister
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim username As String = TextBox1.Text.Trim()
         Dim password As String = TextBox2.Text.Trim()
+        Dim role As String = "user" ' Default role untuk registrasi
 
         If username = "" Or password = "" Then
             MessageBox.Show("Username dan Password tidak boleh kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -17,7 +18,7 @@ Public Class FormRegister
 
             Try
                 ' Cek Username
-                Dim queryCek As String = "SELECT COUNT(*) FROM tbl_user WHERE username = @user"
+                Dim queryCek As String = "SELECT COUNT(*) FROM users WHERE username = @user"
                 Dim cmdCek As New SqlCommand(queryCek, conn)
                 cmdCek.Parameters.AddWithValue("@user", username)
 
@@ -27,9 +28,10 @@ Public Class FormRegister
                     MessageBox.Show("Username sudah terdaftar!", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Else
                     ' Simpan Data
-                    Dim querySimpan As String = "INSERT INTO tbl_user (username, password) VALUES (@user, @pass)"
+                    Dim querySimpan As String = "INSERT INTO users (username, role, password) VALUES (@user, @role, @pass)"
                     Dim cmdSimpan As New SqlCommand(querySimpan, conn)
                     cmdSimpan.Parameters.AddWithValue("@user", username)
+                    cmdSimpan.Parameters.AddWithValue("@role", role)
                     cmdSimpan.Parameters.AddWithValue("@pass", password)
 
                     cmdSimpan.ExecuteNonQuery()
@@ -43,5 +45,4 @@ Public Class FormRegister
             End Try
         End Using
     End Sub
-
 End Class

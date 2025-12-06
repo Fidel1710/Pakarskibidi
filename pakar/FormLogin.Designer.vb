@@ -91,9 +91,9 @@ Partial Class FormLogin
         Button2.Text = "Register"
         Button2.UseVisualStyleBackColor = True
         ' 
-        ' Form2
+        ' FormLogin
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(Button2)
@@ -103,7 +103,7 @@ Partial Class FormLogin
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
-        Name = "Form2"
+        Name = "FormLogin"
         Text = "Form2"
         ResumeLayout(False)
         PerformLayout()

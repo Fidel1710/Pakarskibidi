@@ -81,7 +81,7 @@ Partial Class FormRegister
         Button1.Text = "Register"
         Button1.UseVisualStyleBackColor = True
         ' 
-        ' Form3
+        ' FormRegister
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -92,7 +92,7 @@ Partial Class FormRegister
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(Label1)
-        Name = "Form3"
+        Name = "FormRegister"
         Text = "Form3"
         ResumeLayout(False)
         PerformLayout()
