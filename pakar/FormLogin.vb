@@ -1,6 +1,6 @@
 ﻿Imports Microsoft.Data.SqlClient
 
-Public Class Form2
+Public Class FormLogin
 
     ' Tombol LOGIN (Button1)
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -28,7 +28,7 @@ Public Class Form2
                     MessageBox.Show("Login Berhasil!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     ' Buka Form Utama (Form1 - Sistem Pakar)
-                    Dim frmUtama As New Form1()
+                    Dim frmUtama As New FormMain()
                     frmUtama.Show()
 
                     ' Sembunyikan Form Login
@@ -45,7 +45,7 @@ Public Class Form2
 
     ' Tombol REGISTER (Button2) - Untuk pindah ke Form3
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim frmReg As New Form3()
+        Dim frmReg As New FormRegister()
         frmReg.ShowDialog() ' Buka sebagai dialog agar user fokus register
     End Sub
 

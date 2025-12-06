@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Microsoft.Data.SqlClient
-Public Class Form4
+Public Class FormAdmin
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Using conn As SqlConnection = getConnection()
             conn.Open()

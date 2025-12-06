@@ -1,6 +1,6 @@
 ﻿Imports Microsoft.Data.SqlClient
 
-Public Class Form3
+Public Class FormRegister
 
     ' Tombol REGISTER (Pastikan nama tombolnya Button1 sesuai Designer Anda)
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
