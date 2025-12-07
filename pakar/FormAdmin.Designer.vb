@@ -22,518 +22,517 @@ Partial Class FormAdmin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.PanelCardRule = New System.Windows.Forms.Panel()
-        Me.PanelHeaderStrip = New System.Windows.Forms.Panel()
-        Me.LabelTitle1 = New System.Windows.Forms.Label()
-        Me.LabelSubtitle1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.PanelCardData = New System.Windows.Forms.Panel()
-        Me.LabelTitle2 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        Me.PanelCardRule.SuspendLayout()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage2.SuspendLayout()
-        Me.PanelCardData.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.TabControl1.ItemSize = New System.Drawing.Size(120, 40)
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.Padding = New System.Drawing.Point(25, 5)
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(800, 600)
-        Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
-        Me.TabControl1.TabIndex = 0
-        '
-        'TabPage1
-        '
-        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(252, Byte), Integer))
-        Me.TabPage1.Controls.Add(Me.PanelCardRule)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 44)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(40)
-        Me.TabPage1.Size = New System.Drawing.Size(792, 552)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Konfigurasi Rule"
-        '
-        'PanelCardRule
-        '
-        Me.PanelCardRule.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PanelCardRule.BackColor = System.Drawing.Color.White
-        Me.PanelCardRule.Controls.Add(Me.PanelHeaderStrip)
-        Me.PanelCardRule.Controls.Add(Me.LabelTitle1)
-        Me.PanelCardRule.Controls.Add(Me.LabelSubtitle1)
-        Me.PanelCardRule.Controls.Add(Me.Button1)
-        Me.PanelCardRule.Controls.Add(Me.ComboBox3)
-        Me.PanelCardRule.Controls.Add(Me.ComboBox2)
-        Me.PanelCardRule.Controls.Add(Me.ComboBox1)
-        Me.PanelCardRule.Controls.Add(Me.NumericUpDown3)
-        Me.PanelCardRule.Controls.Add(Me.NumericUpDown2)
-        Me.PanelCardRule.Controls.Add(Me.NumericUpDown1)
-        Me.PanelCardRule.Controls.Add(Me.Label8)
-        Me.PanelCardRule.Controls.Add(Me.Label7)
-        Me.PanelCardRule.Controls.Add(Me.Label6)
-        Me.PanelCardRule.Controls.Add(Me.Label5)
-        Me.PanelCardRule.Controls.Add(Me.Label4)
-        Me.PanelCardRule.Controls.Add(Me.Label3)
-        Me.PanelCardRule.Controls.Add(Me.Label2)
-        Me.PanelCardRule.Controls.Add(Me.TextBox1)
-        Me.PanelCardRule.Controls.Add(Me.Label1)
-        Me.PanelCardRule.Location = New System.Drawing.Point(121, 36)
-        Me.PanelCardRule.Name = "PanelCardRule"
-        Me.PanelCardRule.Padding = New System.Windows.Forms.Padding(40)
-        Me.PanelCardRule.Size = New System.Drawing.Size(550, 480)
-        Me.PanelCardRule.TabIndex = 17
-        '
-        'PanelHeaderStrip
-        '
-        Me.PanelHeaderStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.PanelHeaderStrip.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelHeaderStrip.Location = New System.Drawing.Point(40, 40)
-        Me.PanelHeaderStrip.Name = "PanelHeaderStrip"
-        Me.PanelHeaderStrip.Size = New System.Drawing.Size(470, 3)
-        Me.PanelHeaderStrip.TabIndex = 20
-        '
-        'LabelTitle1
-        '
-        Me.LabelTitle1.AutoSize = True
-        Me.LabelTitle1.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTitle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.LabelTitle1.Location = New System.Drawing.Point(34, 55)
-        Me.LabelTitle1.Name = "LabelTitle1"
-        Me.LabelTitle1.Size = New System.Drawing.Size(182, 32)
-        Me.LabelTitle1.TabIndex = 18
-        Me.LabelTitle1.Text = "Pengaturan Rule"
-        '
-        'LabelSubtitle1
-        '
-        Me.LabelSubtitle1.AutoSize = True
-        Me.LabelSubtitle1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.LabelSubtitle1.ForeColor = System.Drawing.Color.Gray
-        Me.LabelSubtitle1.Location = New System.Drawing.Point(38, 90)
-        Me.LabelSubtitle1.Name = "LabelSubtitle1"
-        Me.LabelSubtitle1.Size = New System.Drawing.Size(325, 15)
-        Me.LabelSubtitle1.TabIndex = 19
-        Me.LabelSubtitle1.Text = "Sesuaikan parameter certainty factor untuk sistem pakar anda."
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(40, 400)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(470, 45)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Simpan Data"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox3.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ComboBox3.ForeColor = System.Drawing.Color.Black
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(40, 230)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(280, 25)
-        Me.ComboBox3.TabIndex = 15
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ComboBox2.ForeColor = System.Drawing.Color.Black
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(40, 350)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(280, 25)
-        Me.ComboBox2.TabIndex = 14
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ComboBox1.ForeColor = System.Drawing.Color.Black
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(40, 290)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(280, 25)
-        Me.ComboBox1.TabIndex = 13
-        '
-        'NumericUpDown3
-        '
-        Me.NumericUpDown3.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.NumericUpDown3.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.NumericUpDown3.DecimalPlaces = 2
-        Me.NumericUpDown3.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.NumericUpDown3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown3.Location = New System.Drawing.Point(360, 351)
-        Me.NumericUpDown3.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(150, 23)
-        Me.NumericUpDown3.TabIndex = 12
-        Me.NumericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'NumericUpDown2
-        '
-        Me.NumericUpDown2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.NumericUpDown2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.NumericUpDown2.DecimalPlaces = 2
-        Me.NumericUpDown2.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.NumericUpDown2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown2.Location = New System.Drawing.Point(360, 291)
-        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(150, 23)
-        Me.NumericUpDown2.TabIndex = 11
-        Me.NumericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'NumericUpDown1
-        '
-        Me.NumericUpDown1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.NumericUpDown1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.NumericUpDown1.DecimalPlaces = 2
-        Me.NumericUpDown1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.NumericUpDown1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NumericUpDown1.Location = New System.Drawing.Point(360, 231)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(150, 23)
-        Me.NumericUpDown1.TabIndex = 10
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label8.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label8.Location = New System.Drawing.Point(357, 330)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(60, 13)
-        Me.Label8.TabIndex = 9
-        Me.Label8.Text = "NILAI CF 3"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label7.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label7.Location = New System.Drawing.Point(357, 270)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(60, 13)
-        Me.Label7.TabIndex = 8
-        Me.Label7.Text = "NILAI CF 2"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label6.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label6.Location = New System.Drawing.Point(357, 210)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(60, 13)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "NILAI CF 1"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label5.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label5.Location = New System.Drawing.Point(37, 330)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(91, 13)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "MATA KULIAH 3"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label4.Location = New System.Drawing.Point(37, 270)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(91, 13)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "MATA KULIAH 2"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label3.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label3.Location = New System.Drawing.Point(37, 210)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(91, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "MATA KULIAH 1"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label2.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label2.Location = New System.Drawing.Point(37, 140)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(71, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "JUDUL DATA"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.TextBox1.Location = New System.Drawing.Point(40, 160)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(470, 28)
-        Me.TextBox1.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(300, 270)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(0, 19)
-        Me.Label1.TabIndex = 0
-        '
-        'TabPage2
-        '
-        Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(252, Byte), Integer))
-        Me.TabPage2.Controls.Add(Me.PanelCardData)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 44)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(30)
-        Me.TabPage2.Size = New System.Drawing.Size(792, 552)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Data Master"
-        '
-        'PanelCardData
-        '
-        Me.PanelCardData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PanelCardData.BackColor = System.Drawing.Color.White
-        Me.PanelCardData.Controls.Add(Me.LabelTitle2)
-        Me.PanelCardData.Controls.Add(Me.Button4)
-        Me.PanelCardData.Controls.Add(Me.Button3)
-        Me.PanelCardData.Controls.Add(Me.Button2)
-        Me.PanelCardData.Controls.Add(Me.TextBox2)
-        Me.PanelCardData.Controls.Add(Me.Label9)
-        Me.PanelCardData.Controls.Add(Me.DataGridView1)
-        Me.PanelCardData.Location = New System.Drawing.Point(33, 33)
-        Me.PanelCardData.Name = "PanelCardData"
-        Me.PanelCardData.Padding = New System.Windows.Forms.Padding(30)
-        Me.PanelCardData.Size = New System.Drawing.Size(726, 486)
-        Me.PanelCardData.TabIndex = 0
-        '
-        'LabelTitle2
-        '
-        Me.LabelTitle2.AutoSize = True
-        Me.LabelTitle2.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold)
-        Me.LabelTitle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.LabelTitle2.Location = New System.Drawing.Point(26, 25)
-        Me.LabelTitle2.Name = "LabelTitle2"
-        Me.LabelTitle2.Size = New System.Drawing.Size(225, 32)
-        Me.LabelTitle2.TabIndex = 20
-        Me.LabelTitle2.Text = "Daftar Mata Kuliah"
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right
-        Me.Button4.BackColor = System.Drawing.Color.White
-        Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Button4.Location = New System.Drawing.Point(603, 418)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(90, 35)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "HAPUS"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(507, 418)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(90, 35)
-        Me.Button3.TabIndex = 5
-        Me.Button3.Text = "TAMBAH"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(243, Byte), Integer), CType(CType(156, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(411, 418)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(90, 35)
-        Me.Button2.TabIndex = 4
-        Me.Button2.Text = "EDIT"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right
-        Me.TextBox2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.TextBox2.ForeColor = System.Drawing.Color.Black
-        Me.TextBox2.Location = New System.Drawing.Point(30, 370)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(663, 28)
-        Me.TextBox2.TabIndex = 3
-        '
-        'Label9
-        '
-        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Label9.ForeColor = System.Drawing.Color.SlateGray
-        Me.Label9.Location = New System.Drawing.Point(27, 350)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(117, 13)
-        Me.Label9.TabIndex = 2
-        Me.Label9.Text = "NAMA MATA KULIAH"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.ColumnHeadersHeight = 45
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(62, Byte), Integer), CType(CType(80, Byte), Integer))
-        DataGridViewCellStyle3.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(244, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridView1.EnableHeadersVisualStyles = False
-        Me.DataGridView1.GridColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridView1.Location = New System.Drawing.Point(30, 80)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowTemplate.Height = 45
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(663, 275)
-        Me.DataGridView1.TabIndex = 1
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.ContainerControl = Me
-        '
-        'FormAdmin
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(246, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(252, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 600)
-        Me.Controls.Add(Me.TabControl1)
-        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Name = "FormAdmin"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "System Admin"
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
-        Me.PanelCardRule.ResumeLayout(False)
-        Me.PanelCardRule.PerformLayout()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage2.ResumeLayout(False)
-        Me.PanelCardData.ResumeLayout(False)
-        Me.PanelCardData.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        components = New ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        TabControl1 = New TabControl()
+        TabPage1 = New TabPage()
+        PanelCardRule = New Panel()
+        PanelHeaderStrip = New Panel()
+        LabelTitle1 = New Label()
+        LabelSubtitle1 = New Label()
+        Button1 = New Button()
+        ComboBox3 = New ComboBox()
+        ComboBox2 = New ComboBox()
+        ComboBox1 = New ComboBox()
+        NumericUpDown3 = New NumericUpDown()
+        NumericUpDown2 = New NumericUpDown()
+        NumericUpDown1 = New NumericUpDown()
+        Label8 = New Label()
+        Label7 = New Label()
+        Label6 = New Label()
+        Label5 = New Label()
+        Label4 = New Label()
+        Label3 = New Label()
+        Label2 = New Label()
+        TextBox1 = New TextBox()
+        Label1 = New Label()
+        TabPage2 = New TabPage()
+        PanelCardData = New Panel()
+        LabelTitle2 = New Label()
+        Button4 = New Button()
+        Button3 = New Button()
+        Button2 = New Button()
+        TextBox2 = New TextBox()
+        Label9 = New Label()
+        DataGridView1 = New DataGridView()
+        ErrorProvider1 = New ErrorProvider(components)
+        TabControl1.SuspendLayout()
+        TabPage1.SuspendLayout()
+        PanelCardRule.SuspendLayout()
+        CType(NumericUpDown3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).BeginInit()
+        CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage2.SuspendLayout()
+        PanelCardData.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
+        SuspendLayout()
+        ' 
+        ' TabControl1
+        ' 
+        TabControl1.Controls.Add(TabPage1)
+        TabControl1.Controls.Add(TabPage2)
+        TabControl1.Dock = DockStyle.Fill
+        TabControl1.Font = New Font("Segoe UI", 10F)
+        TabControl1.ItemSize = New Size(120, 40)
+        TabControl1.Location = New Point(0, 0)
+        TabControl1.Name = "TabControl1"
+        TabControl1.Padding = New Point(25, 5)
+        TabControl1.SelectedIndex = 0
+        TabControl1.Size = New Size(800, 600)
+        TabControl1.SizeMode = TabSizeMode.Fixed
+        TabControl1.TabIndex = 0
+        ' 
+        ' TabPage1
+        ' 
+        TabPage1.BackColor = Color.FromArgb(CByte(246), CByte(248), CByte(252))
+        TabPage1.Controls.Add(PanelCardRule)
+        TabPage1.Location = New Point(4, 44)
+        TabPage1.Name = "TabPage1"
+        TabPage1.Padding = New Padding(40)
+        TabPage1.Size = New Size(792, 552)
+        TabPage1.TabIndex = 0
+        TabPage1.Text = "Konfigurasi Rule"
+        ' 
+        ' PanelCardRule
+        ' 
+        PanelCardRule.Anchor = AnchorStyles.None
+        PanelCardRule.BackColor = Color.White
+        PanelCardRule.Controls.Add(PanelHeaderStrip)
+        PanelCardRule.Controls.Add(LabelTitle1)
+        PanelCardRule.Controls.Add(LabelSubtitle1)
+        PanelCardRule.Controls.Add(Button1)
+        PanelCardRule.Controls.Add(ComboBox3)
+        PanelCardRule.Controls.Add(ComboBox2)
+        PanelCardRule.Controls.Add(ComboBox1)
+        PanelCardRule.Controls.Add(NumericUpDown3)
+        PanelCardRule.Controls.Add(NumericUpDown2)
+        PanelCardRule.Controls.Add(NumericUpDown1)
+        PanelCardRule.Controls.Add(Label8)
+        PanelCardRule.Controls.Add(Label7)
+        PanelCardRule.Controls.Add(Label6)
+        PanelCardRule.Controls.Add(Label5)
+        PanelCardRule.Controls.Add(Label4)
+        PanelCardRule.Controls.Add(Label3)
+        PanelCardRule.Controls.Add(Label2)
+        PanelCardRule.Controls.Add(TextBox1)
+        PanelCardRule.Controls.Add(Label1)
+        PanelCardRule.Location = New Point(121, 36)
+        PanelCardRule.Name = "PanelCardRule"
+        PanelCardRule.Padding = New Padding(40)
+        PanelCardRule.Size = New Size(550, 480)
+        PanelCardRule.TabIndex = 17
+        ' 
+        ' PanelHeaderStrip
+        ' 
+        PanelHeaderStrip.BackColor = Color.FromArgb(CByte(65), CByte(105), CByte(225))
+        PanelHeaderStrip.Dock = DockStyle.Top
+        PanelHeaderStrip.Location = New Point(40, 40)
+        PanelHeaderStrip.Name = "PanelHeaderStrip"
+        PanelHeaderStrip.Size = New Size(470, 3)
+        PanelHeaderStrip.TabIndex = 20
+        ' 
+        ' LabelTitle1
+        ' 
+        LabelTitle1.AutoSize = True
+        LabelTitle1.Font = New Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        LabelTitle1.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        LabelTitle1.Location = New Point(34, 55)
+        LabelTitle1.Name = "LabelTitle1"
+        LabelTitle1.Size = New Size(246, 41)
+        LabelTitle1.TabIndex = 18
+        LabelTitle1.Text = "Pengaturan Rule"
+        ' 
+        ' LabelSubtitle1
+        ' 
+        LabelSubtitle1.AutoSize = True
+        LabelSubtitle1.Font = New Font("Segoe UI", 9F)
+        LabelSubtitle1.ForeColor = Color.Gray
+        LabelSubtitle1.Location = New Point(38, 90)
+        LabelSubtitle1.Name = "LabelSubtitle1"
+        LabelSubtitle1.Size = New Size(418, 20)
+        LabelSubtitle1.TabIndex = 19
+        LabelSubtitle1.Text = "Sesuaikan parameter certainty factor untuk sistem pakar anda."
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.FromArgb(CByte(65), CByte(105), CByte(225))
+        Button1.Cursor = Cursors.Hand
+        Button1.FlatAppearance.BorderSize = 0
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Segoe UI Semibold", 10F, FontStyle.Bold)
+        Button1.ForeColor = Color.White
+        Button1.Location = New Point(40, 400)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(470, 45)
+        Button1.TabIndex = 16
+        Button1.Text = "Simpan Data"
+        Button1.UseVisualStyleBackColor = False
+        ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.BackColor = Color.WhiteSmoke
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox3.FlatStyle = FlatStyle.Flat
+        ComboBox3.Font = New Font("Segoe UI", 10F)
+        ComboBox3.ForeColor = Color.Black
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Location = New Point(40, 230)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(280, 31)
+        ComboBox3.TabIndex = 15
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.BackColor = Color.WhiteSmoke
+        ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox2.FlatStyle = FlatStyle.Flat
+        ComboBox2.Font = New Font("Segoe UI", 10F)
+        ComboBox2.ForeColor = Color.Black
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Location = New Point(40, 350)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(280, 31)
+        ComboBox2.TabIndex = 14
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.BackColor = Color.WhiteSmoke
+        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox1.FlatStyle = FlatStyle.Flat
+        ComboBox1.Font = New Font("Segoe UI", 10F)
+        ComboBox1.ForeColor = Color.Black
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Location = New Point(40, 290)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(280, 31)
+        ComboBox1.TabIndex = 13
+        ' 
+        ' NumericUpDown3
+        ' 
+        NumericUpDown3.BackColor = Color.WhiteSmoke
+        NumericUpDown3.BorderStyle = BorderStyle.None
+        NumericUpDown3.DecimalPlaces = 2
+        NumericUpDown3.Font = New Font("Segoe UI", 11F)
+        NumericUpDown3.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        NumericUpDown3.Location = New Point(360, 351)
+        NumericUpDown3.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown3.Name = "NumericUpDown3"
+        NumericUpDown3.Size = New Size(150, 28)
+        NumericUpDown3.TabIndex = 12
+        NumericUpDown3.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' NumericUpDown2
+        ' 
+        NumericUpDown2.BackColor = Color.WhiteSmoke
+        NumericUpDown2.BorderStyle = BorderStyle.None
+        NumericUpDown2.DecimalPlaces = 2
+        NumericUpDown2.Font = New Font("Segoe UI", 11F)
+        NumericUpDown2.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        NumericUpDown2.Location = New Point(360, 291)
+        NumericUpDown2.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown2.Name = "NumericUpDown2"
+        NumericUpDown2.Size = New Size(150, 28)
+        NumericUpDown2.TabIndex = 11
+        NumericUpDown2.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' NumericUpDown1
+        ' 
+        NumericUpDown1.BackColor = Color.WhiteSmoke
+        NumericUpDown1.BorderStyle = BorderStyle.None
+        NumericUpDown1.DecimalPlaces = 2
+        NumericUpDown1.Font = New Font("Segoe UI", 11F)
+        NumericUpDown1.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        NumericUpDown1.Location = New Point(360, 231)
+        NumericUpDown1.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown1.Name = "NumericUpDown1"
+        NumericUpDown1.Size = New Size(150, 28)
+        NumericUpDown1.TabIndex = 10
+        NumericUpDown1.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label8.ForeColor = Color.SlateGray
+        Label8.Location = New Point(357, 330)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(77, 19)
+        Label8.TabIndex = 9
+        Label8.Text = "NILAI CF 3"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label7.ForeColor = Color.SlateGray
+        Label7.Location = New Point(357, 270)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(77, 19)
+        Label7.TabIndex = 8
+        Label7.Text = "NILAI CF 2"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label6.ForeColor = Color.SlateGray
+        Label6.Location = New Point(357, 210)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(77, 19)
+        Label6.TabIndex = 7
+        Label6.Text = "NILAI CF 1"
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label5.ForeColor = Color.SlateGray
+        Label5.Location = New Point(37, 330)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(115, 19)
+        Label5.TabIndex = 6
+        Label5.Text = "MATA KULIAH 3"
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label4.ForeColor = Color.SlateGray
+        Label4.Location = New Point(37, 270)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(115, 19)
+        Label4.TabIndex = 5
+        Label4.Text = "MATA KULIAH 2"
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label3.ForeColor = Color.SlateGray
+        Label3.Location = New Point(37, 210)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(115, 19)
+        Label3.TabIndex = 3
+        Label3.Text = "MATA KULIAH 1"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label2.ForeColor = Color.SlateGray
+        Label2.Location = New Point(37, 140)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(92, 19)
+        Label2.TabIndex = 2
+        Label2.Text = "JUDUL DATA"
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.BackColor = Color.WhiteSmoke
+        TextBox1.BorderStyle = BorderStyle.None
+        TextBox1.Font = New Font("Segoe UI", 11F)
+        TextBox1.ForeColor = Color.Black
+        TextBox1.Location = New Point(40, 160)
+        TextBox1.Multiline = True
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(470, 28)
+        TextBox1.TabIndex = 1
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(300, 270)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(0, 23)
+        Label1.TabIndex = 0
+        ' 
+        ' TabPage2
+        ' 
+        TabPage2.BackColor = Color.FromArgb(CByte(246), CByte(248), CByte(252))
+        TabPage2.Controls.Add(PanelCardData)
+        TabPage2.Location = New Point(4, 44)
+        TabPage2.Name = "TabPage2"
+        TabPage2.Padding = New Padding(30)
+        TabPage2.Size = New Size(792, 552)
+        TabPage2.TabIndex = 1
+        TabPage2.Text = "Data Master"
+        ' 
+        ' PanelCardData
+        ' 
+        PanelCardData.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        PanelCardData.BackColor = Color.White
+        PanelCardData.Controls.Add(LabelTitle2)
+        PanelCardData.Controls.Add(Button4)
+        PanelCardData.Controls.Add(Button3)
+        PanelCardData.Controls.Add(Button2)
+        PanelCardData.Controls.Add(TextBox2)
+        PanelCardData.Controls.Add(Label9)
+        PanelCardData.Controls.Add(DataGridView1)
+        PanelCardData.Location = New Point(33, 33)
+        PanelCardData.Name = "PanelCardData"
+        PanelCardData.Padding = New Padding(30)
+        PanelCardData.Size = New Size(726, 486)
+        PanelCardData.TabIndex = 0
+        ' 
+        ' LabelTitle2
+        ' 
+        LabelTitle2.AutoSize = True
+        LabelTitle2.Font = New Font("Segoe UI Semibold", 18F, FontStyle.Bold)
+        LabelTitle2.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        LabelTitle2.Location = New Point(26, 25)
+        LabelTitle2.Name = "LabelTitle2"
+        LabelTitle2.Size = New Size(277, 41)
+        LabelTitle2.TabIndex = 20
+        LabelTitle2.Text = "Daftar Mata Kuliah"
+        ' 
+        ' Button4
+        ' 
+        Button4.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button4.BackColor = Color.White
+        Button4.Cursor = Cursors.Hand
+        Button4.FlatAppearance.BorderColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        Button4.FlatStyle = FlatStyle.Flat
+        Button4.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        Button4.ForeColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
+        Button4.Location = New Point(603, 418)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(90, 35)
+        Button4.TabIndex = 6
+        Button4.Text = "HAPUS"
+        Button4.UseVisualStyleBackColor = False
+        ' 
+        ' Button3
+        ' 
+        Button3.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button3.BackColor = Color.FromArgb(CByte(46), CByte(204), CByte(113))
+        Button3.Cursor = Cursors.Hand
+        Button3.FlatAppearance.BorderSize = 0
+        Button3.FlatStyle = FlatStyle.Flat
+        Button3.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        Button3.ForeColor = Color.White
+        Button3.Location = New Point(507, 418)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(90, 35)
+        Button3.TabIndex = 5
+        Button3.Text = "TAMBAH"
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Button2
+        ' 
+        Button2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
+        Button2.BackColor = Color.White
+        Button2.Cursor = Cursors.Hand
+        Button2.FlatAppearance.BorderColor = Color.FromArgb(CByte(241), CByte(196), CByte(15))
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold)
+        Button2.ForeColor = Color.FromArgb(CByte(243), CByte(156), CByte(18))
+        Button2.Location = New Point(411, 418)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(90, 35)
+        Button2.TabIndex = 4
+        Button2.Text = "EDIT"
+        Button2.UseVisualStyleBackColor = False
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        TextBox2.BackColor = Color.WhiteSmoke
+        TextBox2.BorderStyle = BorderStyle.None
+        TextBox2.Font = New Font("Segoe UI", 11F)
+        TextBox2.ForeColor = Color.Black
+        TextBox2.Location = New Point(30, 370)
+        TextBox2.Multiline = True
+        TextBox2.Name = "TextBox2"
+        TextBox2.Size = New Size(663, 28)
+        TextBox2.TabIndex = 3
+        ' 
+        ' Label9
+        ' 
+        Label9.Anchor = AnchorStyles.Bottom Or AnchorStyles.Left
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
+        Label9.ForeColor = Color.SlateGray
+        Label9.Location = New Point(27, 350)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(151, 19)
+        Label9.TabIndex = 2
+        Label9.Text = "NAMA MATA KULIAH"
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.ForeColor = Color.Black
+        DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        DataGridView1.BackgroundColor = Color.White
+        DataGridView1.BorderStyle = BorderStyle.None
+        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.White
+        DataGridViewCellStyle2.Font = New Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        DataGridViewCellStyle2.SelectionBackColor = Color.White
+        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridView1.ColumnHeadersHeight = 45
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(44), CByte(62), CByte(80))
+        DataGridViewCellStyle3.Padding = New Padding(10, 0, 0, 0)
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(240), CByte(244), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(65), CByte(105), CByte(225))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridView1.EnableHeadersVisualStyles = False
+        DataGridView1.GridColor = Color.WhiteSmoke
+        DataGridView1.Location = New Point(30, 80)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.RowTemplate.Height = 45
+        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView1.Size = New Size(663, 275)
+        DataGridView1.TabIndex = 1
+        ' 
+        ' ErrorProvider1
+        ' 
+        ErrorProvider1.ContainerControl = Me
+        ' 
+        ' FormAdmin
+        ' 
+        AutoScaleDimensions = New SizeF(9F, 21F)
+        AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.FromArgb(CByte(246), CByte(248), CByte(252))
+        ClientSize = New Size(800, 600)
+        Controls.Add(TabControl1)
+        Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Name = "FormAdmin"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "System Admin"
+        TabControl1.ResumeLayout(False)
+        TabPage1.ResumeLayout(False)
+        PanelCardRule.ResumeLayout(False)
+        PanelCardRule.PerformLayout()
+        CType(NumericUpDown3, ComponentModel.ISupportInitialize).EndInit()
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).EndInit()
+        CType(NumericUpDown1, ComponentModel.ISupportInitialize).EndInit()
+        TabPage2.ResumeLayout(False)
+        PanelCardData.ResumeLayout(False)
+        PanelCardData.PerformLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
+        ResumeLayout(False)
 
     End Sub
 

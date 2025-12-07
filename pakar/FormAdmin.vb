@@ -168,57 +168,71 @@ Public Class FormAdmin
     '  INSERT KASUS
     ' ====================
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        ' Clear previous errors
+        ErrorProvider1.Clear()
 
         Dim judul As String = TextBox1.Text.Trim()
-
         If judul = "" Then
             ErrorProvider1.SetError(TextBox1, "Judul tidak boleh kosong!")
             Return
         End If
 
+        ' Check if at least one ComboBox is selected
         If ComboBox1.SelectedIndex = -1 And ComboBox2.SelectedIndex = -1 And ComboBox3.SelectedIndex = -1 Then
-            ErrorProvider1.SetError(ComboBox1, "Mata Kuliah Tidak Boleh Kosong!")
+            ErrorProvider1.SetError(ComboBox1, "Pilih minimal 1 mata kuliah!")
             Return
         End If
 
-        If NumericUpDown1.Value = 0 And NumericUpDown2.Value = 0 And NumericUpDown3.Value = 0 Then
-            ErrorProvider1.SetError(NumericUpDown1, "Certainty Factor Tidak Boleh Nol!")
-            Return
-        End If
-
-        Dim mk1 As String =  ComboBox1.SelectedIndex
-        Dim mk2 As String = ComboBox2.SelectedIndex
-        Dim mk3 As String = ComboBox3.SelectedIndex
-
-        Dim cf1 As Double = NumericUpDown1.Value
-        Dim cf2 As Double = NumericUpDown2.Value
-        Dim cf3 As Double = NumericUpDown3.Value
-
-        If mk1 = "" And mk2 = "" And mk3 = "" Then
-            MessageBox.Show("Pilih minimal 1 mata kuliah!")
+        ' Check if corresponding CF is filled for selected ComboBoxes
+        If (ComboBox1.SelectedIndex <> -1 And NumericUpDown1.Value = 0) Or
+           (ComboBox2.SelectedIndex <> -1 And NumericUpDown2.Value = 0) Or
+           (ComboBox3.SelectedIndex <> -1 And NumericUpDown3.Value = 0) Then
+            ErrorProvider1.SetError(NumericUpDown1, "Certainty Factor tidak boleh nol untuk mata kuliah yang dipilih!")
             Return
         End If
 
         Using conn As SqlConnection = getConnection()
+            If conn Is Nothing Then Return
 
             Using cmd As New SqlCommand("
-                INSERT INTO rules 
-                (judul, mata_kuliah1, cf1, mata_kuliah2, cf2, mata_kuliah3, cf3)
-                VALUES (@judul, @mk1, @cf1, @mk2, @cf2, @mk3, @cf3)", conn)
+            INSERT INTO rules 
+            (judul, mata_kuliah1, cf1, mata_kuliah2, cf2, mata_kuliah3, cf3)
+            VALUES (@judul, @mk1, @cf1, @mk2, @cf2, @mk3, @cf3)", conn)
 
                 cmd.Parameters.AddWithValue("@judul", judul)
-                cmd.Parameters.AddWithValue("@mk1", mk1)
-                cmd.Parameters.AddWithValue("@cf1", cf1)
-                cmd.Parameters.AddWithValue("@mk2", mk2)
-                cmd.Parameters.AddWithValue("@cf2", cf2)
-                cmd.Parameters.AddWithValue("@mk3", mk3)
-                cmd.Parameters.AddWithValue("@cf3", cf3)
+
+                ' Handle mata_kuliah1 and cf1
+                If ComboBox1.SelectedIndex <> -1 Then
+                    cmd.Parameters.AddWithValue("@mk1", ComboBox1.SelectedIndex)
+                    cmd.Parameters.AddWithValue("@cf1", CDbl(NumericUpDown1.Value))
+                Else
+                    cmd.Parameters.AddWithValue("@mk1", DBNull.Value)
+                    cmd.Parameters.AddWithValue("@cf1", DBNull.Value)
+                End If
+
+                ' Handle mata_kuliah2 and cf2
+                If ComboBox2.SelectedIndex <> -1 Then
+                    cmd.Parameters.AddWithValue("@mk2", ComboBox2.SelectedIndex)
+                    cmd.Parameters.AddWithValue("@cf2", CDbl(NumericUpDown2.Value))
+                Else
+                    cmd.Parameters.AddWithValue("@mk2", DBNull.Value)
+                    cmd.Parameters.AddWithValue("@cf2", DBNull.Value)
+                End If
+
+                ' Handle mata_kuliah3 and cf3
+                If ComboBox3.SelectedIndex <> -1 Then
+                    cmd.Parameters.AddWithValue("@mk3", ComboBox3.SelectedIndex)
+                    cmd.Parameters.AddWithValue("@cf3", CDbl(NumericUpDown3.Value))
+                Else
+                    cmd.Parameters.AddWithValue("@mk3", DBNull.Value)
+                    cmd.Parameters.AddWithValue("@cf3", DBNull.Value)
+                End If
 
                 Try
                     cmd.ExecuteNonQuery()
+                    MessageBox.Show("Judul berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                    MessageBox.Show("Judul berhasil ditambahkan!", "Sukses")
-
+                    ' Clear form
                     TextBox1.Clear()
                     ComboBox1.SelectedIndex = -1
                     ComboBox2.SelectedIndex = -1
@@ -226,9 +240,9 @@ Public Class FormAdmin
                     NumericUpDown1.Value = 0
                     NumericUpDown2.Value = 0
                     NumericUpDown3.Value = 0
-
+                    ErrorProvider1.Clear()
                 Catch ex As Exception
-                    MessageBox.Show("Error: " & ex.Message)
+                    MessageBox.Show("Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             End Using
         End Using
