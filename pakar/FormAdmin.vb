@@ -4,6 +4,15 @@ Public Class FormAdmin
 
     Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Using conn As SqlConnection = getConnection()
+            LoadData()
+        End Using
+    End Sub
+
+    Private Sub LoadData()
+        Using conn As SqlConnection = getConnection()
+            ComboBox1.Items.Clear()
+            ComboBox2.Items.Clear()
+            ComboBox3.Items.Clear()
 
             ' LOAD DATAGRID
             Using cmd As New SqlCommand("SELECT * FROM matakuliah", conn)
@@ -72,9 +81,8 @@ Public Class FormAdmin
                     MessageBox.Show("Error: " & ex.Message)
                 End Try
             End Using
-
         End Using
-
+        LoadData()
     End Sub
 
 
@@ -110,9 +118,8 @@ Public Class FormAdmin
                     MessageBox.Show("Error: " & ex.Message)
                 End Try
             End Using
-
         End Using
-
+        LoadData()
     End Sub
 
 
@@ -157,9 +164,8 @@ Public Class FormAdmin
                     MessageBox.Show("Error: " & ex.Message)
                 End Try
             End Using
-
         End Using
-
+        LoadData()
     End Sub
 
 
@@ -246,5 +252,6 @@ Public Class FormAdmin
                 End Try
             End Using
         End Using
+        LoadData()
     End Sub
 End Class

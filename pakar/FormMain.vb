@@ -238,20 +238,6 @@ Public Class FormMain
         btnReset.Cursor = Cursors.Hand
         AddHandler btnReset.Click, AddressOf ButtonReset_Click
         panelButton.Controls.Add(btnReset)
-
-        ' Tombol Refresh Data
-        Dim btnRefresh As New Button()
-        btnRefresh.Text = "REFRESH DATA"
-        btnRefresh.Font = New Font("Segoe UI", 12, FontStyle.Bold)
-        btnRefresh.Size = New Size(200, 50)
-        btnRefresh.Location = New Point(460, 15)
-        btnRefresh.BackColor = Color.FromArgb(76, 175, 80)
-        btnRefresh.ForeColor = Color.White
-        btnRefresh.FlatStyle = FlatStyle.Flat
-        btnRefresh.FlatAppearance.BorderSize = 0
-        btnRefresh.Cursor = Cursors.Hand
-        AddHandler btnRefresh.Click, AddressOf ButtonRefresh_Click
-        panelButton.Controls.Add(btnRefresh)
     End Sub
 
     Private Sub TrackBar_ValueChanged(sender As Object, e As EventArgs)
